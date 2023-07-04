@@ -1,0 +1,7 @@
+{
+  "name": "Chambitas2",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
