@@ -1,0 +1,35 @@
+ 
+.Logo {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  max-width: 240px;
+  padding-left: 10%;
+  padding-top: 2%;
+  text-align: center;
+}
+
+.SquareButton {
+  width: 56px;
+  height: 56px;
+  margin-left: 20%;
+  background-color: transparent;
+  border: 1px solid black;
+  background: #f4f2f2;
+  border-radius: 50%;
+}
+
+.nav-bar {
+  max-width: 100%;
+  max-height: 75px;
+}
+
+ion-card {
+  height:11%;
+}
+
+.menu-button {
+  width: 120%;
+  text-align: left;
+}
