@@ -12,6 +12,10 @@ const routes: Routes = [
     loadChildren: () => import('./nav-bar/nav-bar.module').then( m => m.NavBarPageModule)
   },
   {
+    path: 'computo',
+    loadChildren: () => import('./computo/computo.module').then( m => m.ComputoPageModule)
+  },
+  {
     path: '',
     redirectTo: 'home',
     pathMatch: 'full'
