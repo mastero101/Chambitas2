@@ -7,14 +7,16 @@ import { IonicModule } from '@ionic/angular';
 import { ComputoPageRoutingModule } from './computo-routing.module';
 
 import { ComputoPage } from './computo.page';
+import { NavBarPageModule } from "../nav-bar/nav-bar.module";
 
 @NgModule({
-  imports: [
-    CommonModule,
-    FormsModule,
-    IonicModule,
-    ComputoPageRoutingModule
-  ],
-  declarations: [ComputoPage]
+    declarations: [ComputoPage],
+    imports: [
+        CommonModule,
+        FormsModule,
+        IonicModule,
+        ComputoPageRoutingModule,
+        NavBarPageModule
+    ]
 })
 export class ComputoPageModule {}
