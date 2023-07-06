@@ -13,4 +13,8 @@ export class HomePage implements OnInit {
     
   }
 
+  reloadPage(): void {
+    window.location.reload();
+  }
+
 }
