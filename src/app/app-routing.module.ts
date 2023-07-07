@@ -15,6 +15,10 @@ const routes: Routes = [
     loadChildren: () => import('./computo/computo.module').then( m => m.ComputoPageModule)
   },
   {
+    path: 'profile',
+    loadChildren: () => import('./profile/profile.module').then( m => m.ProfilePageModule)
+  },
+  {
     path: '',
     redirectTo: 'home',
     pathMatch: 'full'
