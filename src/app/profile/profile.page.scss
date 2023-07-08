@@ -1,13 +1,13 @@
 .Logo {
     display: flex;
     align-items: center;
-    justify-content:center;
+    justify-content: center;
     width: 100%;
     max-width: 240px;
     text-align: center;
     margin-top: 3.2%;
     margin-left: 16%;
-  }
+}
 
 .SquareButton {
     width: 56px;
@@ -17,41 +17,67 @@
     border: 1px solid black;
     background: #f4f2f2;
     border-radius: 50%;
-  }
+}
 
 .FotoPerfil {
-    width: 192px; 
-    height: 192px; 
-    left: 59px; 
-    top: 11px; 
+    width: 192px;
+    height: 192px;
+    left: 59px;
+    top: 11px;
     position: absolute;
     border-radius: 9999px;
 }
 
 .NombreAfiliado {
-    width: 315px; 
-    height: 52px; 
-    left: 0px; 
-    top: 228px; 
-    position: absolute; 
+    width: 315px;
+    height: 52px;
+    left: 0px;
+    top: 228px;
+    position: absolute;
     background: #D9D9D9
 }
 
 .Clasificacion {
-    width: 315px; 
-    height: 27px; 
-    left: 0px; 
-    top: 280px; 
-    position: absolute; 
+    width: 315px;
+    height: 27px;
+    left: 0px;
+    top: 280px;
+    position: absolute;
     background: #140eb4
 }
 
 .AreaDeServicio {
-    width: 315px; 
-    height: 73px; 
-    left: 0px; 
-    top: 308px; 
-    position: absolute; 
+    width: 315px;
+    height: 73px;
+    left: 0px;
+    top: 308px;
+    position: absolute;
     background: #D9D9D9;
 }
 
+.HorarioDeServicio {
+    width: 315px;
+    height: 38px;
+    left: 0px;
+    top: 381px;
+    position: absolute;
+    background: #140eb4
+}
+
+.BannerPromocional {
+    width: 315px;
+    height: 58px;
+    left: 0px;
+    top: 420px;
+    position: absolute;
+    background: #D9D9D9
+}
+
+.Calificaciones {
+    width: 315px;
+    height: 73px;
+    left: 0px;
+    top: 478px;
+    position: absolute;
+    background: #140eb4
+}
