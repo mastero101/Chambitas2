@@ -1,0 +1,194 @@
+<ion-content class="AndroidSmall1" style="width: 360px; height: 667px; position: relative; background: white">
+  <ion-menu contentId="main-content" type="push" side="end" style="--width: 130px;">
+    <ion-content class="ion-padding">
+      <ion-button class="menu-button" [routerLink]="['/nav']">Perfil</ion-button>
+      <ion-button class="menu-button" [routerLink]="['/']" routerLinkActive="router-link-active" >Mensajes</ion-button>
+      <ion-button class="menu-button">Ver Mas</ion-button>
+      <ion-button class="menu-button">Menu</ion-button>
+      <ion-menu-toggle auto-hide="false">
+        <ion-button class="menu-button">X</ion-button>
+      </ion-menu-toggle>
+    </ion-content>
+  </ion-menu>
+
+  <ion-content id="main-content" scroll-y="true">
+    <div class="Logo">
+        <ion-back-button defaultHref="/" style="margin-right: -5%;margin-left: -10%;"></ion-back-button>
+        <img src="https://i.imgur.com/mpHMg1E.png" alt="Banner">
+      <ion-buttons slot="start">
+        <ion-menu-toggle>
+          <ion-button class="SquareButton" fill="clear">
+            <ion-icon name="person-outline" size="large"></ion-icon>
+          </ion-button>
+        </ion-menu-toggle>
+      </ion-buttons>
+    </div>
+    <div class="Frame1" style="width: 315px; height: 551px; left: 12.5px; top: 83px; position: absolute" scroll-y="true">
+      <ion-grid class="grid-container">
+        <ion-card class="first">
+          <ion-card class="intern">
+              Anonimo
+          </ion-card>
+          <ion-card class="stars">
+            <ion-icon name="star" [ngClass]="{'star-icon': true, 'selected': star1Selected}" (click)="selectStar(1)"></ion-icon>
+            <ion-icon name="star" [ngClass]="{'star-icon': true, 'selected': star2Selected}" (click)="selectStar(2)"></ion-icon>
+            <ion-icon name="star" [ngClass]="{'star-icon': true, 'selected': star3Selected}" (click)="selectStar(3)"></ion-icon>
+            <ion-icon name="star" [ngClass]="{'star-icon': true, 'selected': star4Selected}" (click)="selectStar(4)"></ion-icon>
+            <ion-icon name="star" [ngClass]="{'star-icon': true, 'selected': star5Selected}" (click)="selectStar(5)"></ion-icon>
+          </ion-card>
+          <ion-card class="var">
+            Color: Blue B
+          </ion-card>
+          <ion-card class="send">
+            Envío AliExpress Selection Shipping for Mexico
+          </ion-card>
+          <ion-card class="comment">
+            Compré buen material a un precio bajo. Buen precio costo .. Si compras una botella de agua grande, dame una botella de agua pequeña. Incondicionalmente comprar una botella de agua grande. Si piensas que está hecho en China, es causalidad. 
+            &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 
+            08 Jul 2023 02:01
+          </ion-card>
+          <ion-card class="img">
+            <img class="imgsize" src="https://i.imgur.com/IFCMmzz.jpg" alt="">
+          </ion-card>
+          <ion-card class="img2">
+            <img class="imgsize" src="https://i.imgur.com/ZFqBil9.jpg" alt="">
+          </ion-card>
+          <ion-card class="img3">
+            <img class="imgsize" src="https://i.imgur.com/huSusvm.jpg" alt="">
+          </ion-card>
+        </ion-card>
+        <ion-card class="second" style="top: 300px;">
+          <ion-card class="intern">
+              Anonimo
+          </ion-card>
+          <ion-card class="stars">
+            <ion-icon name="star" [ngClass]="{'star-icon': true, 'selected': star1Selected}" (click)="selectStar(1)"></ion-icon>
+            <ion-icon name="star" [ngClass]="{'star-icon': true, 'selected': star2Selected}" (click)="selectStar(2)"></ion-icon>
+            <ion-icon name="star" [ngClass]="{'star-icon': true, 'selected': star3Selected}" (click)="selectStar(3)"></ion-icon>
+            <ion-icon name="star" [ngClass]="{'star-icon': true, 'selected': star4Selected}" (click)="selectStar(4)"></ion-icon>
+            <ion-icon name="star" [ngClass]="{'star-icon': true, 'selected': star5Selected}" (click)="selectStar(5)"></ion-icon>
+          </ion-card>
+          <ion-card class="var">
+            Color: Blue B
+          </ion-card>
+          <ion-card class="send">
+            Envío AliExpress Selection Shipping for Mexico
+          </ion-card>
+          <ion-card class="comment">
+            Compré buen material a un precio bajo. Buen precio costo .. Si compras una botella de agua grande, dame una botella de agua pequeña. Incondicionalmente comprar una botella de agua grande. Si piensas que está hecho en China, es causalidad. 
+            &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 
+            08 Jul 2023 02:01
+          </ion-card>
+          <ion-card class="img">
+            <img class="imgsize" src="https://i.imgur.com/IFCMmzz.jpg" alt="">
+          </ion-card>
+          <ion-card class="img2">
+            <img class="imgsize" src="https://i.imgur.com/ZFqBil9.jpg" alt="">
+          </ion-card>
+          <ion-card class="img3">
+            <img class="imgsize" src="https://i.imgur.com/huSusvm.jpg" alt="">
+          </ion-card>
+        </ion-card>
+        <ion-card class="third" style="top: 595px;">
+          <ion-card class="intern">
+              Anonimo
+          </ion-card>
+          <ion-card class="stars">
+            <ion-icon name="star" [ngClass]="{'star-icon': true, 'selected': star1Selected}" (click)="selectStar(1)"></ion-icon>
+            <ion-icon name="star" [ngClass]="{'star-icon': true, 'selected': star2Selected}" (click)="selectStar(2)"></ion-icon>
+            <ion-icon name="star" [ngClass]="{'star-icon': true, 'selected': star3Selected}" (click)="selectStar(3)"></ion-icon>
+            <ion-icon name="star" [ngClass]="{'star-icon': true, 'selected': star4Selected}" (click)="selectStar(4)"></ion-icon>
+            <ion-icon name="star" [ngClass]="{'star-icon': true, 'selected': star5Selected}" (click)="selectStar(5)"></ion-icon>
+          </ion-card>
+          <ion-card class="var">
+            Color: Blue B
+          </ion-card>
+          <ion-card class="send">
+            Envío AliExpress Selection Shipping for Mexico
+          </ion-card>
+          <ion-card class="comment">
+            Compré buen material a un precio bajo. Buen precio costo .. Si compras una botella de agua grande, dame una botella de agua pequeña. Incondicionalmente comprar una botella de agua grande. Si piensas que está hecho en China, es causalidad. 
+            &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 
+            08 Jul 2023 02:01
+          </ion-card>
+          <ion-card class="img">
+            <img class="imgsize" src="https://i.imgur.com/IFCMmzz.jpg" alt="">
+          </ion-card>
+          <ion-card class="img2">
+            <img class="imgsize" src="https://i.imgur.com/ZFqBil9.jpg" alt="">
+          </ion-card>
+          <ion-card class="img3">
+            <img class="imgsize" src="https://i.imgur.com/huSusvm.jpg" alt="">
+          </ion-card>
+        </ion-card>
+        <ion-card class="four" style="top: 890px;">
+          <ion-card class="intern">
+              Anonimo
+          </ion-card>
+          <ion-card class="stars">
+            <ion-icon name="star" [ngClass]="{'star-icon': true, 'selected': star1Selected}" (click)="selectStar(1)"></ion-icon>
+            <ion-icon name="star" [ngClass]="{'star-icon': true, 'selected': star2Selected}" (click)="selectStar(2)"></ion-icon>
+            <ion-icon name="star" [ngClass]="{'star-icon': true, 'selected': star3Selected}" (click)="selectStar(3)"></ion-icon>
+            <ion-icon name="star" [ngClass]="{'star-icon': true, 'selected': star4Selected}" (click)="selectStar(4)"></ion-icon>
+            <ion-icon name="star" [ngClass]="{'star-icon': true, 'selected': star5Selected}" (click)="selectStar(5)"></ion-icon>
+          </ion-card>
+          <ion-card class="var">
+            Color: Blue B
+          </ion-card>
+          <ion-card class="send">
+            Envío AliExpress Selection Shipping for Mexico
+          </ion-card>
+          <ion-card class="comment">
+            Compré buen material a un precio bajo. Buen precio costo .. Si compras una botella de agua grande, dame una botella de agua pequeña. Incondicionalmente comprar una botella de agua grande. Si piensas que está hecho en China, es causalidad. 
+            &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 
+            08 Jul 2023 02:01
+          </ion-card>
+          <ion-card class="img">
+            <img class="imgsize" src="https://i.imgur.com/IFCMmzz.jpg" alt="">
+          </ion-card>
+          <ion-card class="img2">
+            <img class="imgsize" src="https://i.imgur.com/ZFqBil9.jpg" alt="">
+          </ion-card>
+          <ion-card class="img3">
+            <img class="imgsize" src="https://i.imgur.com/huSusvm.jpg" alt="">
+          </ion-card>
+        </ion-card>
+        <ion-card class="five" style="top: 1185px;">
+          <ion-card class="intern">
+              Anonimo
+          </ion-card>
+          <ion-card class="stars">
+            <ion-icon name="star" [ngClass]="{'star-icon': true, 'selected': star1Selected}" (click)="selectStar(1)"></ion-icon>
+            <ion-icon name="star" [ngClass]="{'star-icon': true, 'selected': star2Selected}" (click)="selectStar(2)"></ion-icon>
+            <ion-icon name="star" [ngClass]="{'star-icon': true, 'selected': star3Selected}" (click)="selectStar(3)"></ion-icon>
+            <ion-icon name="star" [ngClass]="{'star-icon': true, 'selected': star4Selected}" (click)="selectStar(4)"></ion-icon>
+            <ion-icon name="star" [ngClass]="{'star-icon': true, 'selected': star5Selected}" (click)="selectStar(5)"></ion-icon>
+          </ion-card>
+          <ion-card class="var">
+            Color: Blue B
+          </ion-card>
+          <ion-card class="send">
+            Envío AliExpress Selection Shipping for Mexico
+          </ion-card>
+          <ion-card class="comment">
+            Compré buen material a un precio bajo. Buen precio costo .. Si compras una botella de agua grande, dame una botella de agua pequeña. Incondicionalmente comprar una botella de agua grande. Si piensas que está hecho en China, es causalidad. 
+            &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 
+            08 Jul 2023 02:01
+          </ion-card>
+          <ion-card class="img">
+            <img class="imgsize" src="https://i.imgur.com/IFCMmzz.jpg" alt="">
+          </ion-card>
+          <ion-card class="img2">
+            <img class="imgsize" src="https://i.imgur.com/ZFqBil9.jpg" alt="">
+          </ion-card>
+          <ion-card class="img3">
+            <img class="imgsize" src="https://i.imgur.com/huSusvm.jpg" alt="">
+          </ion-card>
+        </ion-card>
+        <ion-card style="top: 1485px; left: 140px; height: 45px; width: 35px; margin-bottom: 40px;">
+            <ion-icon name="add-circle-outline" size="large"></ion-icon>
+        </ion-card>
+      </ion-grid>
+    </div>
+  </ion-content>
+</ion-content>

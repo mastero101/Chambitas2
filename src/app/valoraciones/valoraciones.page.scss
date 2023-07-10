@@ -1,0 +1,97 @@
+.Logo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    max-width: 240px;
+    text-align: center;
+    margin-top: 3.2%;
+    margin-left: 16%;
+}
+
+.SquareButton {
+    width: 56px;
+    height: 56px;
+    margin-left: 20%;
+    background-color: transparent;
+    border: 1px solid black;
+    background: #f4f2f2;
+    border-radius: 50%;
+}
+
+ion-card {
+    width: 315px;
+    height: 280px;
+    left: 0px;
+    top: 5px;
+    position: absolute;
+    background: #f4f2f2
+}
+
+.intern {
+    width: 80px;
+    height: 25px;
+    left: 0px;
+    top: 5px;
+    text-align: center;
+}
+
+.stars {
+    width: 200px;
+    height: 25px;
+    left: 90px;
+    top: 5px;
+    text-align: center;
+}
+
+.var {
+    width: 100px;
+    height: 35px;
+    left: 0px;
+    top: 40px;
+    text-align: center;
+}
+
+.send {
+    width: 180px;
+    height: 35px;
+    left: 110px;
+    top: 40px;
+    text-align: center;
+}
+
+.comment {
+    width: 290px;
+    height: 90px;
+    left: 0px;
+    top: 85px;
+    text-align:justify;
+    font-size:small;
+}
+
+.img {
+    width: 80px;
+    height: 60px;
+    left: 10px;
+    top: 190px;
+}
+
+.img2 {
+    width: 80px;
+    height: 60px;
+    left: 100px;
+    top: 190px;
+}
+
+.img3 {
+    width: 80px;
+    height: 60px;
+    left: 190px;
+    top: 190px;
+}
+
+.imgsize {
+    padding: 3px;
+    width: 80px;
+    height: 60px;
+}
