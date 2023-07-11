@@ -47,19 +47,22 @@
             &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 
             08 Jul 2023 02:01
           </ion-card>
-          <ion-card class="img">
+          <ion-card class="img-ampliada" *ngIf="imagenAmpliada" (click)="cerrarImagenAmpliada()">
+            <img class="imgsize-ampliada" [src]="imagenSeleccionada" alt="">
+          </ion-card>
+          <ion-card class="img" (click)="ampliarImagen('https://i.imgur.com/IFCMmzz.jpg')">
             <img class="imgsize" src="https://i.imgur.com/IFCMmzz.jpg" alt="">
           </ion-card>
-          <ion-card class="img2">
+          <ion-card class="img2" (click)="ampliarImagen('https://i.imgur.com/ZFqBil9.jpg')">
             <img class="imgsize" src="https://i.imgur.com/ZFqBil9.jpg" alt="">
           </ion-card>
-          <ion-card class="img3">
+          <ion-card class="img3" (click)="ampliarImagen('https://i.imgur.com/huSusvm.jpg')">
             <img class="imgsize" src="https://i.imgur.com/huSusvm.jpg" alt="">
           </ion-card>
         </ion-card>
         <ion-card class="second" style="top: 300px;">
           <ion-card class="intern">
-              Anonimo
+            Anonimo
           </ion-card>
           <ion-card class="stars">
             <ion-icon name="star" [ngClass]="{'star-icon': true, 'selected': star1Selected}" (click)="selectStar(1)"></ion-icon>
@@ -79,13 +82,16 @@
             &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 
             08 Jul 2023 02:01
           </ion-card>
-          <ion-card class="img">
+          <ion-card class="img-ampliada" *ngIf="imagenAmpliada2" (click)="cerrarImagenAmpliada2()">
+            <img class="imgsize-ampliada" [src]="imagenSeleccionada2" alt="">
+          </ion-card>
+          <ion-card class="img" (click)="ampliarImagen2('https://i.imgur.com/IFCMmzz.jpg')">
             <img class="imgsize" src="https://i.imgur.com/IFCMmzz.jpg" alt="">
           </ion-card>
-          <ion-card class="img2">
+          <ion-card class="img2" (click)="ampliarImagen2('https://i.imgur.com/ZFqBil9.jpg')">
             <img class="imgsize" src="https://i.imgur.com/ZFqBil9.jpg" alt="">
           </ion-card>
-          <ion-card class="img3">
+          <ion-card class="img3" (click)="ampliarImagen2('https://i.imgur.com/huSusvm.jpg')">
             <img class="imgsize" src="https://i.imgur.com/huSusvm.jpg" alt="">
           </ion-card>
         </ion-card>
@@ -111,19 +117,22 @@
             &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 
             08 Jul 2023 02:01
           </ion-card>
-          <ion-card class="img">
+          <ion-card class="img-ampliada" *ngIf="imagenAmpliada3" (click)="cerrarImagenAmpliada3()">
+            <img class="imgsize-ampliada" [src]="imagenSeleccionada3" alt="">
+          </ion-card>
+          <ion-card class="img" (click)="ampliarImagen3('https://i.imgur.com/IFCMmzz.jpg')">
             <img class="imgsize" src="https://i.imgur.com/IFCMmzz.jpg" alt="">
           </ion-card>
-          <ion-card class="img2">
+          <ion-card class="img2" (click)="ampliarImagen3('https://i.imgur.com/ZFqBil9.jpg')">
             <img class="imgsize" src="https://i.imgur.com/ZFqBil9.jpg" alt="">
           </ion-card>
-          <ion-card class="img3">
+          <ion-card class="img3" (click)="ampliarImagen3('https://i.imgur.com/huSusvm.jpg')">
             <img class="imgsize" src="https://i.imgur.com/huSusvm.jpg" alt="">
           </ion-card>
         </ion-card>
         <ion-card class="four" style="top: 890px;">
           <ion-card class="intern">
-              Anonimo
+            Anonimo
           </ion-card>
           <ion-card class="stars">
             <ion-icon name="star" [ngClass]="{'star-icon': true, 'selected': star1Selected}" (click)="selectStar(1)"></ion-icon>
@@ -143,19 +152,22 @@
             &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 
             08 Jul 2023 02:01
           </ion-card>
-          <ion-card class="img">
+          <ion-card class="img-ampliada" *ngIf="imagenAmpliada4" (click)="cerrarImagenAmpliada4()">
+            <img class="imgsize-ampliada" [src]="imagenSeleccionada4" alt="">
+          </ion-card>
+          <ion-card class="img" (click)="ampliarImagen4('https://i.imgur.com/IFCMmzz.jpg')">
             <img class="imgsize" src="https://i.imgur.com/IFCMmzz.jpg" alt="">
           </ion-card>
-          <ion-card class="img2">
+          <ion-card class="img2" (click)="ampliarImagen4('https://i.imgur.com/ZFqBil9.jpg')">
             <img class="imgsize" src="https://i.imgur.com/ZFqBil9.jpg" alt="">
           </ion-card>
-          <ion-card class="img3">
+          <ion-card class="img3" (click)="ampliarImagen4('https://i.imgur.com/huSusvm.jpg')">
             <img class="imgsize" src="https://i.imgur.com/huSusvm.jpg" alt="">
           </ion-card>
         </ion-card>
         <ion-card class="five" style="top: 1185px;">
           <ion-card class="intern">
-              Anonimo
+            Anonimo
           </ion-card>
           <ion-card class="stars">
             <ion-icon name="star" [ngClass]="{'star-icon': true, 'selected': star1Selected}" (click)="selectStar(1)"></ion-icon>
@@ -175,13 +187,16 @@
             &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 
             08 Jul 2023 02:01
           </ion-card>
-          <ion-card class="img">
+          <ion-card class="img-ampliada" *ngIf="imagenAmpliada5" (click)="cerrarImagenAmpliada5()">
+            <img class="imgsize-ampliada" [src]="imagenSeleccionada3" alt="">
+          </ion-card>
+          <ion-card class="img" (click)="ampliarImagen5('https://i.imgur.com/IFCMmzz.jpg')">
             <img class="imgsize" src="https://i.imgur.com/IFCMmzz.jpg" alt="">
           </ion-card>
-          <ion-card class="img2">
+          <ion-card class="img2" (click)="ampliarImagen5('https://i.imgur.com/ZFqBil9.jpg')">
             <img class="imgsize" src="https://i.imgur.com/ZFqBil9.jpg" alt="">
           </ion-card>
-          <ion-card class="img3">
+          <ion-card class="img3" (click)="ampliarImagen5('https://i.imgur.com/huSusvm.jpg')">
             <img class="imgsize" src="https://i.imgur.com/huSusvm.jpg" alt="">
           </ion-card>
         </ion-card>

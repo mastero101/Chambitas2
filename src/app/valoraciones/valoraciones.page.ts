@@ -11,6 +11,16 @@ export class ValoracionesPage implements OnInit {
   star3Selected: boolean = false;
   star4Selected: boolean = false;
   star5Selected: boolean = false;
+  imagenAmpliada: boolean = false;
+  imagenAmpliada2: boolean = false;
+  imagenAmpliada3: boolean = false;
+  imagenAmpliada4: boolean = false;
+  imagenAmpliada5: boolean = false;
+  imagenSeleccionada: string = '';
+  imagenSeleccionada2: string = '';
+  imagenSeleccionada3: string = '';
+  imagenSeleccionada4: string = '';
+  imagenSeleccionada5: string = '';
 
   constructor() { }
 
@@ -85,5 +95,50 @@ export class ValoracionesPage implements OnInit {
         this.star5Selected = false;
         break;
     }
+  }
+
+  ampliarImagen(url: string) {
+    this.imagenAmpliada = true;
+    this.imagenSeleccionada = url;
+  }
+
+  ampliarImagen2(url: string) {
+    this.imagenAmpliada2 = true;
+    this.imagenSeleccionada2 = url;
+  }
+
+  ampliarImagen3(url: string) {
+    this.imagenAmpliada3 = true;
+    this.imagenSeleccionada3 = url;
+  }
+
+  ampliarImagen4(url: string) {
+    this.imagenAmpliada4= true;
+    this.imagenSeleccionada4 = url;
+  }
+
+  ampliarImagen5(url: string) {
+    this.imagenAmpliada5 = true;
+    this.imagenSeleccionada5 = url;
+  }
+
+  cerrarImagenAmpliada() {
+    this.imagenAmpliada = false;
+  }
+
+  cerrarImagenAmpliada2() {
+    this.imagenAmpliada2 = false;
+  }
+
+  cerrarImagenAmpliada3() {
+    this.imagenAmpliada3 = false;
+  }
+
+  cerrarImagenAmpliada4() {
+    this.imagenAmpliada4 = false;
+  }
+
+  cerrarImagenAmpliada5() {
+    this.imagenAmpliada5 = false;
   }
 }
