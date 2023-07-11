@@ -8,6 +8,7 @@ import { Component, OnInit } from '@angular/core';
 export class ProfilePage implements OnInit {
   direccion: string = "Av.Fundadores 4 Campeche,Campeche 24014";
   cardVisible: boolean = false;
+  isCardExpanded: boolean = false;
 
   constructor() { }
 
@@ -38,5 +39,6 @@ export class ProfilePage implements OnInit {
 
   toggleCard() {
     this.cardVisible = !this.cardVisible;
+    this.isCardExpanded = !this.isCardExpanded;
   }
 }

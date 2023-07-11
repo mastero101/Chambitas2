@@ -67,22 +67,23 @@
         </ion-card>
 
         <div class="IconsaxLinearLocation" style="width: 24px; height: 24px; left: 13px; top: 330px; position: absolute">
-          <ion-icon name="location-outline" class="side-icons" (click)="openGoogleMaps()"></ion-icon>
+          <ion-icon name="location" class="side-icons" (click)="openGoogleMaps()"></ion-icon>
         </div>
         <div class="IconsaxLinearCopy" style="width: 24px; height: 24px; left: 295px; top: 330px; position: absolute">
-          <ion-icon name="copy-outline" class="side-icons" (click)="copiarTexto()"></ion-icon>
+          <ion-icon name="copy" class="side-icons" (click)="copiarTexto()"></ion-icon>
         </div>
         <div class="IconsaxLinearClock" style="width: 24px; height: 24px; left: 13px; top: 388px; position: absolute; color:white;">
-          <ion-icon name="time-outline" class="side-icons"></ion-icon>
+          <ion-icon name="time" class="side-icons"></ion-icon>
         </div>
         <div class="IconsaxLinearAdd" style="width: 24px; height: 24px; left: 295px; top: 388px; position: absolute; color:white;">
-          <ion-icon name="add-circle-outline" class="side-icons" (click)="toggleCard()"></ion-icon>
+          <ion-icon name="chevron-forward" class="side-icons" *ngIf="!isCardExpanded" (click)="toggleCard()"></ion-icon>
+          <ion-icon name="chevron-down" class="side-icons" *ngIf="isCardExpanded" (click)="toggleCard()"></ion-icon>
         </div>
         <div class="IconsaxLinearShoppingbag" style="width: 24px; height: 24px; left: 13px; top: 445px; position: absolute">
-          <ion-icon name="bag-handle-outline" class="side-icons"></ion-icon>
+          <ion-icon name="bag-handle" class="side-icons"></ion-icon>
         </div>
-        <div class="IconsaxLinearStar1" style="width: 24px; height: 24px; left: 17px; top: 520px; position: absolute; color: yellow;">
-          <ion-icon name="star-outline" class="side-icons"></ion-icon>
+        <div class="IconsaxLinearStar1" style="width: 24px; height: 24px; left: 17px; top: 520px; position: absolute; color: yellow; fill">
+          <ion-icon name="star" class="side-icons"></ion-icon>
         </div>
       </ion-grid>
     </div>
