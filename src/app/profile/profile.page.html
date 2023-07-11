@@ -36,13 +36,24 @@
         </ion-card>
         <ion-card class="AreaDeServicio">
           <ion-title class="TextoArea" style="margin-top: 0.5em; margin-left: 0.5em; font-size: medium;">
+            <span id="textodireccion">
             Av.Fundadores 4 <br>
             Campeche,Campeche <br>
-            24014</ion-title>
+            24014
+            </span>
+          </ion-title>
         </ion-card>
         <ion-card class="HorarioDeServicio">
           <ion-title class="TextoArea"style="margin-top: 0.5em; margin-left: 1.5em; font-size:large; color:white;">
             Servicio de 9 am a 10 pm</ion-title>
+        </ion-card>
+        <ion-card class="HorarioDeServicioCompleto" *ngIf="cardVisible">
+          &nbsp; Lunes 9 am - 10 pm <br>
+          &nbsp; Martes 9 am - 10 pm <br>
+          &nbsp; Miercoles 9 am - 10 pm <br>
+          &nbsp; Jueves 9 am - 10 pm <br>
+          &nbsp; Viernes 9 am - 10 pm <br>
+          &nbsp; Sabado 9 am - 3 pm
         </ion-card>
         <ion-card class="BannerPromocional">
           <ion-title class="TextoArea" style="margin-top: 0.2em; margin-left: 0.5em; font-size: small;">
@@ -56,16 +67,16 @@
         </ion-card>
 
         <div class="IconsaxLinearLocation" style="width: 24px; height: 24px; left: 13px; top: 330px; position: absolute">
-          <ion-icon name="location-outline" class="side-icons"></ion-icon>
+          <ion-icon name="location-outline" class="side-icons" (click)="openGoogleMaps()"></ion-icon>
         </div>
         <div class="IconsaxLinearCopy" style="width: 24px; height: 24px; left: 295px; top: 330px; position: absolute">
-          <ion-icon name="copy-outline" class="side-icons"></ion-icon>
+          <ion-icon name="copy-outline" class="side-icons" (click)="copiarTexto()"></ion-icon>
         </div>
         <div class="IconsaxLinearClock" style="width: 24px; height: 24px; left: 13px; top: 388px; position: absolute; color:white;">
           <ion-icon name="time-outline" class="side-icons"></ion-icon>
         </div>
         <div class="IconsaxLinearAdd" style="width: 24px; height: 24px; left: 295px; top: 388px; position: absolute; color:white;">
-          <ion-icon name="add-circle-outline" class="side-icons"></ion-icon>
+          <ion-icon name="add-circle-outline" class="side-icons" (click)="toggleCard()"></ion-icon>
         </div>
         <div class="IconsaxLinearShoppingbag" style="width: 24px; height: 24px; left: 13px; top: 445px; position: absolute">
           <ion-icon name="bag-handle-outline" class="side-icons"></ion-icon>
