@@ -1,0 +1,91 @@
+<ion-content class="AndroidSmall1" style="width: 360px; height: 667px; position: relative; background: white">
+  <ion-menu contentId="main-content" type="push" side="end" style="--width: 130px;">
+    <ion-content class="ion-padding">
+      <ion-button class="menu-button" [routerLink]="['/nav']">Perfil</ion-button>
+      <ion-button class="menu-button" [routerLink]="['/']" routerLinkActive="router-link-active" >Mensajes</ion-button>
+      <ion-button class="menu-button">Ver Mas</ion-button>
+      <ion-button class="menu-button">Menu</ion-button>
+      <ion-menu-toggle auto-hide="false">
+        <ion-button class="menu-button">X</ion-button>
+      </ion-menu-toggle>
+    </ion-content>
+  </ion-menu>
+  
+  <ion-content id="main-content" scroll-y="true">
+  <div class="Logo">
+      <ion-back-button defaultHref="/" style="margin-right: -5%;margin-left: -10%;"></ion-back-button>
+      <img src="https://i.imgur.com/mpHMg1E.png" alt="Banner">
+    <ion-buttons slot="start">
+      <ion-menu-toggle>
+        <ion-button class="SquareButton" fill="clear">
+          <ion-icon name="person-outline" size="large"></ion-icon>
+        </ion-button>
+      </ion-menu-toggle>
+    </ion-buttons>
+  </div>
+  <div class="Frame1" style="width: 315px; height: 551px; left: 12.5px; top: 83px; position: absolute">
+    <ion-grid class="grid-container">
+      <img class="FotoPerfil" src="https://i.imgur.com/f4RKmhj.jpg" alt="">
+        <ion-card class="NombreAfiliado">
+          <ion-title class="TextoArea" style="margin-top: 0.8em; margin-left: 2.2em; font-size: large;">
+            Dominos (Villas del Rio)</ion-title>
+        </ion-card>
+        <ion-card class="Clasificacion" >
+          <ion-title class="TextoArea" style="margin-top: 0.2em; margin-left: 1.4em; font-size: large;color: white;">
+            Electricidad - Servicios - $$</ion-title>
+        </ion-card>
+        <ion-card class="AreaDeServicio">
+          <ion-title class="TextoArea" style="margin-top: 0.5em; margin-left: 1.0em; font-size: medium;">
+            <span id="textodireccion">
+              Av. Francisco I. Madero 1 <br> 
+              Villa del Río, Barrio de Sta Ana <br> 
+              24010 Campeche, Camp.
+            </span>
+          </ion-title>
+        </ion-card>
+        <ion-card class="HorarioDeServicio">
+          <ion-title class="TextoArea"style="margin-top: 0.5em; margin-left: 1.5em; font-size:large; color:white;">
+            Servicio de 10 am a 10 pm</ion-title>
+        </ion-card>
+        <ion-card class="HorarioDeServicioCompleto" *ngIf="cardVisible">
+          &nbsp; Lunes 10 am - 10 pm <br>
+          &nbsp; Martes 10 am - 10 pm <br>
+          &nbsp; Mierco 10 am - 10 pm <br>
+          &nbsp; Jueves 10 am - 10 pm <br>
+          &nbsp; Viernes 10 am - 10 pm <br>
+          &nbsp; Sabado 10 am - 3 pm
+        </ion-card>
+        <ion-card class="BannerPromocional">
+          <ion-title class="TextoArea" style="margin-top: 0.2em; margin-left: 0.5em; font-size: small;">
+            Obten un costo de envio de 0 MXN + -5%<br>
+            Prueba Chambitas One+ para ahorrar en <br>
+            servicios que cumplan con las condiciones</ion-title>
+        </ion-card>
+        <ion-card class="Calificaciones" [routerLink]="['/valoraciones']">
+          <ion-title class="TextoArea" style="margin-top: 1.35em; margin-left: 2.2em; color: white;">
+            4.8 (31 Valoraciones)</ion-title>
+        </ion-card>
+
+        <div class="IconsaxLinearLocation" style="width: 24px; height: 24px; left: 13px; top: 330px; position: absolute">
+          <ion-icon name="location" class="side-icons" (click)="openGoogleMaps()"></ion-icon>
+        </div>
+        <div class="IconsaxLinearCopy" style="width: 24px; height: 24px; left: 295px; top: 330px; position: absolute">
+          <ion-icon name="copy" class="side-icons" (click)="copiarTexto()"></ion-icon>
+        </div>
+        <div class="IconsaxLinearClock" style="width: 24px; height: 24px; left: 13px; top: 388px; position: absolute; color:white;">
+          <ion-icon name="time" class="side-icons"></ion-icon>
+        </div>
+        <div class="IconsaxLinearAdd" style="width: 24px; height: 24px; left: 295px; top: 388px; position: absolute; color:white;">
+          <ion-icon name="chevron-forward" class="side-icons" *ngIf="!isCardExpanded" (click)="toggleCard()"></ion-icon>
+          <ion-icon name="chevron-down" class="side-icons" *ngIf="isCardExpanded" (click)="toggleCard()"></ion-icon>
+        </div>
+        <div class="IconsaxLinearShoppingbag" style="width: 24px; height: 24px; left: 13px; top: 445px; position: absolute">
+          <ion-icon name="bag-handle" class="side-icons"></ion-icon>
+        </div>
+        <div class="IconsaxLinearStar1" style="width: 24px; height: 24px; left: 17px; top: 520px; position: absolute; color: yellow;">
+          <ion-icon name="star" class="side-icons"></ion-icon>
+        </div>
+      </ion-grid>
+    </div>
+  </ion-content>
+</ion-content>

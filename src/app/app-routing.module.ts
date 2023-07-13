@@ -23,6 +23,10 @@ const routes: Routes = [
     loadChildren: () => import('./valoraciones/valoraciones.module').then( m => m.ValoracionesPageModule)
   },
   {
+    path: 'profile2',
+    loadChildren: () => import('./profile2/profile2.module').then( m => m.Profile2PageModule)
+  },
+  {
     path: '',
     redirectTo: 'home',
     pathMatch: 'full'
