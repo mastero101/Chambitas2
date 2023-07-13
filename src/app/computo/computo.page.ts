@@ -17,6 +17,16 @@ export class ComputoPage implements OnInit {
   star3Selected2: boolean = false;
   star4Selected2: boolean = false;
   star5Selected2: boolean = false;
+  star1Selected3: boolean = false;
+  star2Selected3: boolean = false;
+  star3Selected3: boolean = false;
+  star4Selected3: boolean = false;
+  star5Selected3: boolean = false;
+  star1Selected4: boolean = false;
+  star2Selected4: boolean = false;
+  star3Selected4: boolean = false;
+  star4Selected4: boolean = false;
+  star5Selected4: boolean = false;
   estrellas1: number = 0;
   afiliados: any [] = [];
   afiliado1: any;
@@ -39,36 +49,6 @@ export class ComputoPage implements OnInit {
     this.star3Selected = this.estrellas1 >= 3;
     this.star4Selected = this.estrellas1 >= 4;
     this.star5Selected = this.estrellas1 >= 5;
-  }
-  
-  deselectStar(starNumber: number) {
-    switch (starNumber) {
-      case 1:
-        this.star1Selected = false;
-        this.star2Selected = false;
-        this.star3Selected = false;
-        this.star4Selected = false;
-        this.star5Selected = false;
-        break;
-      case 2:
-        this.star2Selected = false;
-        this.star3Selected = false;
-        this.star4Selected = false;
-        this.star5Selected = false;
-        break;
-      case 3:
-        this.star3Selected = false;
-        this.star4Selected = false;
-        this.star5Selected = false;
-        break;
-      case 4:
-        this.star4Selected = false;
-        this.star5Selected = false;
-        break;
-      case 5:
-        this.star5Selected = false;
-        break;
-    }
   }
   
   getAfiliados() {
