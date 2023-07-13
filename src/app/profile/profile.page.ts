@@ -47,7 +47,7 @@ export class ProfilePage implements OnInit {
   }
 
   getAfiliados() {
-    const url = 'http://192.168.0.32:3000/afiliados';
+    const url = 'https://masteros.cloud/afiliados';
     const id = 1; // ID deseado
   
     axios.get(url)

@@ -52,7 +52,7 @@ export class ComputoPage implements OnInit {
   }
   
   getAfiliados() {
-    const url = 'http://192.168.0.32:3000/afiliados';
+    const url = 'https://masteros.cloud/afiliados';
 
     axios.get(url)
       .then(response => {
