@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import axios from 'axios';
 
 @Component({
   selector: 'app-profile',
@@ -6,18 +7,21 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./profile.page.scss'],
 })
 export class ProfilePage implements OnInit {
-  direccion: string = "Av.Fundadores 4 Campeche,Campeche 24014";
   cardVisible: boolean = false;
   isCardExpanded: boolean = false;
+  afiliados: any [] = [];
+  map: any;
 
   constructor() { }
 
   ngOnInit() {
+    this.getAfiliados();
+    this.map = this.getAfiliados();
   }
 
   copiarTexto() {
     const tempTextArea = document.createElement('textarea');
-    tempTextArea.value = this.direccion;
+    tempTextArea.value = this.map;
 
     document.body.appendChild(tempTextArea);
 
@@ -30,7 +34,7 @@ export class ProfilePage implements OnInit {
   }
 
   openGoogleMaps() {
-    const address = this.direccion;
+    const address = this.map;
     const encodedAddress = encodeURIComponent(address);
     const url = `https://www.google.com/maps/search/?api=1&query=${encodedAddress}`;
   
@@ -40,5 +44,30 @@ export class ProfilePage implements OnInit {
   toggleCard() {
     this.cardVisible = !this.cardVisible;
     this.isCardExpanded = !this.isCardExpanded;
+  }
+
+  getAfiliados() {
+    const url = 'http://192.168.0.32:3000/afiliados';
+    const id = 1; // ID deseado
+  
+    axios.get(url)
+      .then(response => {
+        this.afiliados = response.data;
+  
+        // Buscar el conjunto de datos por ID
+        const afiliadoSeleccionado = this.afiliados.find(afiliado => afiliado.id === id);
+  
+        if (afiliadoSeleccionado) {
+          // Los datos del afiliado seleccionado están en la variable `afiliadoSeleccionado`
+          console.log(afiliadoSeleccionado);
+
+          this.map = afiliadoSeleccionado.area_servicio;
+        } else {
+          console.log(`No se encontró ningún afiliado con ID ${id}`);
+        }
+      })
+      .catch(error => {
+        console.error('Error al obtener los afiliados:', error);
+      });
   }
 }

@@ -27,9 +27,9 @@
       <ion-grid class="grid-container">
   <ion-card style="margin-top: -4%;">
     <ion-card-header>
-      <ion-card-title class="profesion">Profesión</ion-card-title>
+      <ion-card-title class="profesion">{{ afiliado1?.profesion }}</ion-card-title>
       <br>
-      <ion-card-subtitle class="nombre">Nombre</ion-card-subtitle>
+      <ion-card-subtitle class="nombre">{{ afiliado1?.nombre_afiliado }}</ion-card-subtitle>
     </ion-card-header>
     <ion-card-content style="width:300px; height: 100px;">
       <img class="Ellipse1" src="https://i.imgur.com/G99ruzr.jpg" alt="" [routerLink]="['/profile']">
@@ -51,9 +51,9 @@
   </ion-card>
   <ion-card>
     <ion-card-header>
-      <ion-card-title class="profesion">Profesión</ion-card-title>
+      <ion-card-title class="profesion">{{ afiliado2?.profesion }}</ion-card-title>
       <br>
-      <ion-card-subtitle class="nombre">Nombre</ion-card-subtitle>
+      <ion-card-subtitle class="nombre">{{ afiliado2?.nombre_afiliado }}</ion-card-subtitle>
     </ion-card-header>
     <ion-card-content style="width:300px; height: 100px;">
       <img class="Ellipse1" src="https://i.imgur.com/f4RKmhj.jpg" alt="" [routerLink]="['/profile2']">
