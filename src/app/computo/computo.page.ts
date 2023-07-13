@@ -12,6 +12,11 @@ export class ComputoPage implements OnInit {
   star3Selected: boolean = false;
   star4Selected: boolean = false;
   star5Selected: boolean = false;
+  star1Selected2: boolean = false;
+  star2Selected2: boolean = false;
+  star3Selected2: boolean = false;
+  star4Selected2: boolean = false;
+  star5Selected2: boolean = false;
   estrellas1: number = 0;
   afiliados: any [] = [];
   afiliado1: any;
@@ -75,7 +80,24 @@ export class ComputoPage implements OnInit {
 
         // Filtrar afiliados por ID 1
       this.afiliado1 = this.afiliados.find(afiliado => afiliado.id === 1);
+      if (this.afiliado1) {
+        const estrellas = parseFloat(this.afiliado1.estrellas);
+        this.star1Selected = estrellas >= 1;
+        this.star2Selected = estrellas >= 2;
+        this.star3Selected = estrellas >= 3;
+        this.star4Selected = estrellas >= 4;
+        this.star5Selected = estrellas >= 5;
+      }
+
       this.afiliado2 = this.afiliados.find(afiliado => afiliado.id === 2);
+      if (this.afiliado2) {
+        const estrellas = parseFloat(this.afiliado2.estrellas);
+        this.star1Selected2 = estrellas >= 1;
+        this.star2Selected2 = estrellas >= 2;
+        this.star3Selected2 = estrellas >= 3;
+        this.star4Selected2 = estrellas >= 4;
+        this.star5Selected2 = estrellas >= 5;
+      }
 
         console.log(this.afiliados);
       })
