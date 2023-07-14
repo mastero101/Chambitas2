@@ -46,12 +46,9 @@
             {{ afiliado.horario_servicio }}</ion-title>
         </ion-card>
         <ion-card class="HorarioDeServicioCompleto" *ngIf="cardVisible">
-          &nbsp; Lunes 9 am - 10 pm <br>
-          &nbsp; Martes 9 am - 10 pm <br>
-          &nbsp; Miercoles 9 am - 10 pm <br>
-          &nbsp; Jueves 9 am - 10 pm <br>
-          &nbsp; Viernes 9 am - 10 pm <br>
-          &nbsp; Sabado 9 am - 3 pm
+          <span id="textodireccion"  class="multi-linea">
+            {{ map2 }}
+          </span>
         </ion-card>
         <ion-card class="BannerPromocional">
           <ion-title class="TextoArea" style="margin-top: 0.2em; margin-left: 0.5em; font-size: small;">

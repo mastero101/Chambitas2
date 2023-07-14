@@ -12,11 +12,13 @@ export class Profile2Page implements OnInit {
   isCardExpanded: boolean = false;
   afiliados: any [] = [];
   map: any;
+  map2: any;
   nombre_afiliado: any;
   profesion: any;
   clasificacion: any;
   precio: any;
   estrellas: any;
+  horario_servicio: any;
 
   constructor() { }
 
@@ -67,9 +69,11 @@ export class Profile2Page implements OnInit {
           console.log(afiliadoSeleccionado);
 
           this.map = afiliadoSeleccionado.area_servicio;
+          this.map2 = afiliadoSeleccionado.horario_servicio_completo;
           this.nombre_afiliado = afiliadoSeleccionado.nombre_afiliado;
           this.profesion = afiliadoSeleccionado.profesion;
           this.clasificacion = afiliadoSeleccionado.clasificacion;
+          this.horario_servicio = afiliadoSeleccionado.horario_servicio;
           this.precio = afiliadoSeleccionado.precio;
           this.estrellas = afiliadoSeleccionado.estrellas;
         } else {

@@ -12,6 +12,7 @@ export class ProfilePage implements OnInit {
   isCardExpanded: boolean = false;
   afiliados: any [] = [];
   map: any;
+  map2: any;
 
   constructor() { }
 
@@ -62,6 +63,7 @@ export class ProfilePage implements OnInit {
           console.log(afiliadoSeleccionado);
 
           this.map = afiliadoSeleccionado.area_servicio;
+          this.map2 = afiliadoSeleccionado.horario_servicio_completo;
         } else {
           console.log(`No se encontró ningún afiliado con ID ${id}`);
         }
