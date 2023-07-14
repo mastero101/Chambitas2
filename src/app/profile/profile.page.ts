@@ -17,7 +17,6 @@ export class ProfilePage implements OnInit {
 
   ngOnInit() {
     this.getAfiliados();
-    this.map = this.getAfiliados();
   }
 
   copiarTexto() {

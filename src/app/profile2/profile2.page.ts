@@ -22,7 +22,6 @@ export class Profile2Page implements OnInit {
 
   ngOnInit() {
     this.getAfiliados();
-    this.map = this.getAfiliados();
   }
 
   copiarTexto() {
