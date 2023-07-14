@@ -27,7 +27,7 @@
     <ion-grid class="grid-container">
       <img class="FotoPerfil" src="https://i.imgur.com/G99ruzr.jpg" alt="">
         <ion-card class="NombreAfiliado">
-          <ion-title class="TextoArea" style="margin-top: 0.8em; margin-left: 4em; font-size: large;" *ngFor="let afiliado of afiliados">
+          <ion-title class="TextoArea" style="margin-top: 0.8em; margin-left: 4.5em; font-size: large;" *ngFor="let afiliado of afiliados">
             {{ afiliado.nombre_afiliado }}</ion-title>
         </ion-card>
         <ion-card class="Clasificacion" >
@@ -36,8 +36,8 @@
         </ion-card>
         <ion-card class="AreaDeServicio">
           <ion-title class="TextoArea" style="margin-top: 0.5em; margin-left: 0.5em; font-size: medium;">
-            <span id="textodireccion" *ngFor="let afiliado of afiliados">
-            {{ afiliado.area_servicio }}
+            <span id="textodireccion"  class="multi-linea">
+            {{ map }}
             </span>
           </ion-title>
         </ion-card>
@@ -61,7 +61,7 @@
           </ion-title>
         </ion-card>
         <ion-card class="Calificaciones" [routerLink]="['/valoraciones']">
-          <ion-title class="TextoArea" style="margin-top: 1.35em; margin-left: 1.8em; color: white;" *ngFor="let afiliado of afiliados">
+          <ion-title class="TextoArea" style="margin-top: 1.35em; margin-left: 2.2em; color: white;" *ngFor="let afiliado of afiliados">
             {{ afiliado.estrellas }} (31 Valoraciones)</ion-title>
         </ion-card>
 

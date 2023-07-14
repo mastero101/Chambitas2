@@ -6,6 +6,7 @@ import axios from 'axios';
   templateUrl: './profile.page.html',
   styleUrls: ['./profile.page.scss'],
 })
+
 export class ProfilePage implements OnInit {
   cardVisible: boolean = false;
   isCardExpanded: boolean = false;
