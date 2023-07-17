@@ -27,6 +27,10 @@ const routes: Routes = [
     loadChildren: () => import('./profile2/profile2.module').then( m => m.Profile2PageModule)
   },
   {
+    path: 'message',
+    loadChildren: () => import('./message/message.module').then( m => m.MessagePageModule)
+  },
+  {
     path: '',
     redirectTo: 'home',
     pathMatch: 'full'

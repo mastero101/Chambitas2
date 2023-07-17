@@ -1,0 +1,20 @@
+.Logo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    max-width: 240px;
+    text-align: center;
+    margin-top: 3.2%;
+    margin-left: 16%;
+}
+
+.SquareButton {
+    width: 56px;
+    height: 56px;
+    margin-left: 20%;
+    background-color: transparent;
+    border: 1px solid black;
+    background: #f4f2f2;
+    border-radius: 50%;
+}
