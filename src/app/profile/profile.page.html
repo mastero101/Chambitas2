@@ -27,7 +27,7 @@
     <ion-grid class="grid-container">
       <img class="FotoPerfil" src="https://i.imgur.com/G99ruzr.jpg" alt="">
         <ion-card class="NombreAfiliado">
-          <ion-title class="TextoArea" style="margin-top: 0.8em; margin-left: 4.5em; font-size: large;" *ngFor="let afiliado of afiliados">
+          <ion-title class="TextoArea" style="margin-top: 0.9em; margin-left: 4.5em; font-size: large;" *ngFor="let afiliado of afiliados">
             {{ afiliado.nombre_afiliado }}</ion-title>
         </ion-card>
         <ion-card class="Clasificacion" >
@@ -58,27 +58,34 @@
           </ion-title>
         </ion-card>
         <ion-card class="Calificaciones" [routerLink]="['/valoraciones']">
-          <ion-title class="TextoArea" style="margin-top: 1.35em; margin-left: 2.2em; color: white;" *ngFor="let afiliado of afiliados">
-            {{ afiliado.estrellas }} (31 Valoraciones)</ion-title>
+          <ion-title class="TextoArea" style="margin-top: 0.65em; margin-left: 2.2em; color: white;" *ngFor="let afiliado of afiliados">
+            {{ afiliado.estrellas }} (31 Valoraciones)
+          </ion-title>
         </ion-card>
 
-        <div class="IconsaxLinearLocation" style="width: 24px; height: 24px; left: 13px; top: 330px; position: absolute">
+        <ion-button class="Contacto">
+          <ion-title class="TextoArea" style="font-size: medium;">
+            Contacto
+          </ion-title>
+        </ion-button>
+
+        <div class="IconsaxLinearLocation" style="width: 24px; height: 24px; left: 13px; top: 320px; position: absolute">
           <ion-icon name="location" class="side-icons" (click)="openGoogleMaps()"></ion-icon>
         </div>
-        <div class="IconsaxLinearCopy" style="width: 24px; height: 24px; left: 295px; top: 330px; position: absolute">
+        <div class="IconsaxLinearCopy" style="width: 24px; height: 24px; left: 298px; top: 320px; position: absolute">
           <ion-icon name="copy" class="side-icons" (click)="copiarTexto()"></ion-icon>
         </div>
-        <div class="IconsaxLinearClock" style="width: 24px; height: 24px; left: 13px; top: 388px; position: absolute; color:white;">
+        <div class="IconsaxLinearClock" style="width: 24px; height: 24px; left: 13px; top: 381px; position: absolute; color:white;">
           <ion-icon name="time" class="side-icons"></ion-icon>
         </div>
-        <div class="IconsaxLinearAdd" style="width: 24px; height: 24px; left: 295px; top: 388px; position: absolute; color:white;">
+        <div class="IconsaxLinearAdd" style="width: 24px; height: 24px; left: 295px; top: 381px; position: absolute; color:white;">
           <ion-icon name="chevron-forward" class="side-icons" *ngIf="!isCardExpanded" (click)="toggleCard()"></ion-icon>
           <ion-icon name="chevron-down" class="side-icons" *ngIf="isCardExpanded" (click)="toggleCard()"></ion-icon>
         </div>
-        <div class="IconsaxLinearShoppingbag" style="width: 24px; height: 24px; left: 13px; top: 445px; position: absolute">
+        <div class="IconsaxLinearShoppingbag" style="width: 24px; height: 24px; left: 13px; top: 435px; position: absolute">
           <ion-icon name="bag-handle" class="side-icons"></ion-icon>
         </div>
-        <div class="IconsaxLinearStar1" style="width: 24px; height: 24px; left: 17px; top: 520px; position: absolute; color: yellow;">
+        <div class="IconsaxLinearStar1" style="width: 24px; height: 24px; left: 17px; top: 493px; position: absolute; color: yellow;">
           <ion-icon name="star" class="side-icons"></ion-icon>
         </div>
       </ion-grid>
