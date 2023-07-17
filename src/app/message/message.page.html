@@ -13,8 +13,8 @@
 
   <ion-content id="main-content" scroll-y="true">
     <div class="Logo">
-        <ion-back-button defaultHref="/" style="margin-right: -5%;margin-left: -10%;"></ion-back-button>
-        <img src="https://i.imgur.com/mpHMg1E.png" alt="Banner">
+      <ion-back-button defaultHref="/" style="margin-right: -5%;margin-left: -10%;"></ion-back-button>
+      <img src="https://i.imgur.com/mpHMg1E.png" alt="Banner">
       <ion-buttons slot="start">
         <ion-menu-toggle>
           <ion-button class="SquareButton" fill="clear">
@@ -27,22 +27,38 @@
     <div class="Frame1" style="width: 330px; height: 551px; left: 12.5px; top: 83px; position: absolute">
       <ion-grid class="grid-container">
 
-        <ion-card style="height: 4.5em;">
-          <ion-input placeholder="Asunto" style="margin-left: 1em; width: 275px;">
-          </ion-input>
-        </ion-card>
+        <form [formGroup]="msgForm" (ngSubmit)="whatsapp()" novalidate>
+          <ion-card style="height: 4.5em;">
+            <ion-item lines="full">
+              <ion-label position="floating">Asunto</ion-label>
+              <ion-input formControlName="asunto" type="text" aria-label="Asunto"></ion-input>
+            </ion-item>
+            <div *ngIf="msgForm.controls['asunto'].touched && msgForm.controls['asunto'].invalid">
+              <div class="ion-padding" *ngIf="msgForm.controls['asunto'].errors?.['required']">
+                <ion-text color="danger">El asunto es requerido.</ion-text>
+              </div>
+            </div>
+          </ion-card>
 
-        <ion-card style="height: 25em;">
-          <ion-textarea placeholder="Mensaje" style="margin-left: 1em; height: 22em; width: 275px;">
-          </ion-textarea>
-        </ion-card>
+          <ion-card style="height: 25em;">
+            <ion-item lines="full">
+              <ion-label position="floating">Mensaje</ion-label>
+              <ion-textarea formControlName="mensaje" aria-label="Mensaje" style="height: 24em;"></ion-textarea>
+            </ion-item>
+            <div *ngIf="msgForm.controls['mensaje'].touched && msgForm.controls['mensaje'].invalid">
+              <div class="ion-padding" *ngIf="msgForm.controls['mensaje'].errors?.['required']">
+                <ion-text color="danger">El mensaje es requerido.</ion-text>
+              </div>
+            </div>
+          </ion-card>
 
-        <ion-button style="margin-left: 5.5em;" color="success">
-          <ion-icon name="logo-whatsapp"></ion-icon>
-          <p style="margin-left: 0.3em;">
-            Enviar Mensaje
-          </p>
-        </ion-button>
+          <ion-button style="margin-left: 5.5em;" color="success" type="submit" [disabled]="msgForm.invalid">
+            <ion-icon name="logo-whatsapp"></ion-icon>
+            <p style="margin-left: 0.3em;">
+              Enviar Mensaje
+            </p>
+          </ion-button>
+        </form>
 
         <ion-button style="margin-left: 8em;" color="warning">
           <ion-icon name="call-outline"></ion-icon>
