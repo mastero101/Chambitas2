@@ -19,6 +19,7 @@ export class Profile2Page implements OnInit {
   precio: any;
   estrellas: any;
   horario_servicio: any;
+  horario_completo: any;
 
   constructor() { }
 
@@ -69,7 +70,11 @@ export class Profile2Page implements OnInit {
           console.log(afiliadoSeleccionado);
 
           this.map = afiliadoSeleccionado.area_servicio;
-          this.map2 = afiliadoSeleccionado.horario_servicio_completo;
+
+          this.horario_completo = afiliadoSeleccionado.horario_servicio_completo;
+          const horarioFormateado = this.horario_completo.replace(/ pm/g, ' pm\n');
+          this.map2 = horarioFormateado;
+
           this.nombre_afiliado = afiliadoSeleccionado.nombre_afiliado;
           this.profesion = afiliadoSeleccionado.profesion;
           this.clasificacion = afiliadoSeleccionado.clasificacion;

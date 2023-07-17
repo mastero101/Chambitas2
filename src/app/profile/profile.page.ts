@@ -13,6 +13,7 @@ export class ProfilePage implements OnInit {
   afiliados: any [] = [];
   map: any;
   map2: any;
+  horario_completo: any;
 
   constructor() { }
 
@@ -63,7 +64,11 @@ export class ProfilePage implements OnInit {
           console.log(afiliadoSeleccionado);
 
           this.map = afiliadoSeleccionado.area_servicio;
-          this.map2 = afiliadoSeleccionado.horario_servicio_completo;
+
+          this.horario_completo = afiliadoSeleccionado.horario_servicio_completo;
+          const horarioFormateado = this.horario_completo.replace(/ pm/g, ' pm\n');
+          this.map2 = horarioFormateado;
+          
         } else {
           console.log(`No se encontró ningún afiliado con ID ${id}`);
         }
