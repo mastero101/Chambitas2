@@ -98,7 +98,8 @@ export class MessagePage implements OnInit {
         const response = await axios.post(
           'https://api.twilio.com/2010-04-01/Accounts/AC100cb9d640b55673e2b655f9d0229498/Messages.json',
           new URLSearchParams({
-            'To': `whatsapp:+ 52${ this.telefono }`,
+            'To': `whatsapp:+521${ this.telefono }`,
+            //'To': 'whatsapp:+5219811402316',
             'From': 'whatsapp:+14155238886',
             'Body': `${asunto} - ${mensaje}`
           }),
