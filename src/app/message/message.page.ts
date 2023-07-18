@@ -76,8 +76,8 @@ export class MessagePage implements OnInit {
           }),
           {
             auth: {
-              username: 'AC100cb9d640b55673e2b655f9d0229498',
-              password: 'fd3f1d38658b94bd16249601e471ec44'
+              username: '',
+              password: ''
             }
           }
         );
