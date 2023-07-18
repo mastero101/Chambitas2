@@ -1,0 +1,9 @@
+ionic serve - levantar servidor
+ionic cap add android - agregar soporte android
+ionic cap sync - android build
+ionic cap open android - abrir android studio
+Menu/Build/Build Bundle(s) APK/Build APK(s)
+
+ng generate service name
+
+supabase db : beE8fUblh6WVN44l
