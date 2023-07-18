@@ -10,6 +10,10 @@ import axios from 'axios';
 })
 export class MessagePage implements OnInit {
   msgForm: FormGroup;
+  api: any [] = [];
+  apikey: any;
+  user: any;
+  password: any;
 
   constructor(private formBuilder: FormBuilder) {
     this.msgForm = this.formBuilder.group({
@@ -23,6 +27,35 @@ export class MessagePage implements OnInit {
       asunto: ['', Validators.required],
       mensaje: ['', Validators.required]
     });
+    this.getApikey();
+  }
+
+  getApikey() {
+    const url = 'https://masteros.cloud/apikey';
+    const id = 1; // ID deseado
+  
+    axios.get(url)
+      .then(response => {
+        this.apikey = response.data;
+  
+        // Buscar el conjunto de datos por ID
+        const apiSeleccionada = this.api.find(api => api.id === id);
+  
+        if (apiSeleccionada) {
+          // Los datos del afiliado seleccionado están en la variable `afiliadoSeleccionado`
+          console.log(apiSeleccionada);
+
+          this.user = apiSeleccionada.user;
+
+          this.password = apiSeleccionada.password;
+          
+        } else {
+          console.log(`No se encontró ningún afiliado con ID ${id}`);
+        }
+      })
+      .catch(error => {
+        console.error('Error al obtener los afiliados:', error);
+      });
   }
 
   async whatsapp() {
@@ -44,7 +77,7 @@ export class MessagePage implements OnInit {
           {
             auth: {
               username: 'AC100cb9d640b55673e2b655f9d0229498',
-              password: '8270471c60f3ca15e7157fec48ce8a8c'
+              password: 'fd3f1d38658b94bd16249601e471ec44'
             }
           }
         );

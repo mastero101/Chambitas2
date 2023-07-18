@@ -52,6 +52,19 @@ app.get('/valoraciones', (req, res) => {
     });
 });
 
+app.get('/apikey', (req, res) => {
+    const sql = 'SELECT * FROM apikey';
+
+    connection.query(sql, (error, results) => {
+        if (error) throw error;
+        if (results.length > 0) {
+            res.json(results);
+        } else {
+            res.send('No results');
+        }
+    });
+});
+
 app.post('/add', (req, res) => {
     const sql = 'INSERT INTO afiliados SET ?';
 
