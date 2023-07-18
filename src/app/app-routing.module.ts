@@ -31,6 +31,10 @@ const routes: Routes = [
     loadChildren: () => import('./message/message.module').then( m => m.MessagePageModule)
   },
   {
+    path: 'process',
+    loadChildren: () => import('./process/process.module').then( m => m.ProcessPageModule)
+  },
+  {
     path: '',
     redirectTo: 'home',
     pathMatch: 'full'
