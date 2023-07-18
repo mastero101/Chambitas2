@@ -14,6 +14,8 @@ export class MessagePage implements OnInit {
   apikeys: any [] = [];
   user: any;
   password: any;
+  afiliados: any [] = [];
+  telefono: any;
 
   constructor(private formBuilder: FormBuilder) {
     this.msgForm = this.formBuilder.group({
@@ -28,6 +30,7 @@ export class MessagePage implements OnInit {
       mensaje: ['', Validators.required]
     });
     this.getApikey();
+    this.getAfiliados();
   }
 
   getApikey() {
@@ -48,6 +51,32 @@ export class MessagePage implements OnInit {
 
           this.password = apiSeleccionada.password;
           
+        } else {
+          console.log(`No se encontró ningún afiliado con ID ${id}`);
+        }
+      })
+      .catch(error => {
+        console.error('Error al obtener los afiliados:', error);
+      });
+  }
+
+  getAfiliados() {
+    const url = 'https://masteros.cloud/afiliados';
+    const id = 1; // ID deseado
+  
+    axios.get(url)
+      .then(response => {
+        this.afiliados = response.data;
+  
+        // Buscar el conjunto de datos por ID
+        const afiliadoSeleccionado = this.afiliados.find(afiliado => afiliado.id === id);
+  
+        if (afiliadoSeleccionado) {
+          // Los datos del afiliado seleccionado están en la variable `afiliadoSeleccionado`
+          console.log(afiliadoSeleccionado);
+
+          this.telefono = afiliadoSeleccionado.telefono;
+
         } else {
           console.log(`No se encontró ningún afiliado con ID ${id}`);
         }
