@@ -11,7 +11,7 @@ import axios from 'axios';
 export class MessagePage implements OnInit {
   msgForm: FormGroup;
   api: any [] = [];
-  apikey: any;
+  apikeys: any [] = [];
   user: any;
   password: any;
 
@@ -36,16 +36,15 @@ export class MessagePage implements OnInit {
   
     axios.get(url)
       .then(response => {
-        this.apikey = response.data;
+        this.apikeys = response.data;
   
         // Buscar el conjunto de datos por ID
-        const apiSeleccionada = this.api.find(api => api.id === id);
+        const apiSeleccionada = this.apikeys.find(apikey => apikey.id === id);
   
         if (apiSeleccionada) {
           // Los datos del afiliado seleccionado están en la variable `afiliadoSeleccionado`
-          console.log(apiSeleccionada);
 
-          this.user = apiSeleccionada.user;
+          this.user = apiSeleccionada.username;
 
           this.password = apiSeleccionada.password;
           
@@ -76,12 +75,14 @@ export class MessagePage implements OnInit {
           }),
           {
             auth: {
-              username: '',
-              password: ''
+              username: this.user,
+              password: this.password,
             }
           }
         );
         console.log(response.data);
+        alert('Mensaje Enviado');
+        this.msgForm.reset();
       } catch (error) {
         console.error(error);
       }
