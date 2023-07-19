@@ -6,8 +6,13 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./process.page.scss'],
 })
 export class ProcessPage implements OnInit {
+  public progress = 0;
 
-  constructor() { }
+  constructor() { 
+    setInterval(() => {
+      this.progress += 0.25;
+    }, 1000);
+  }
 
   ngOnInit() {
   }
