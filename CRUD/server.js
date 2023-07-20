@@ -65,6 +65,19 @@ app.get('/apikey', (req, res) => {
     });
 });
 
+app.get('/ordenes', (req, res) => {
+    const sql = 'SELECT * FROM ordenes';
+
+    connection.query(sql, (error, results) => {
+        if (error) throw error;
+        if (results.length > 0) {
+            res.json(results);
+        } else {
+            res.send('No results');
+        }
+    });
+});
+
 app.post('/add', (req, res) => {
     const sql = 'INSERT INTO afiliados SET ?';
 
