@@ -30,18 +30,18 @@
         <ion-card class="Frame1" style="width: 315px; height: 551px; left: 10px; top: 75px; position: absolute">
 
           <ion-card style="width: 296px; height: 32px; left: 1px; top: 11px; position: absolute;">
-            <p style="margin-top: 7px; margin-left: 108px;">
-              No Servicio
+            <p style="text-align: center;">
+              ID: {{ no_servicio }}
             </p>
           </ion-card>
 
           <ion-card style="width: 296px; height: 32px; left: 1px; top: 50px; position: absolute;">
-            <p style="margin-top: 7px; margin-left: 118px;">
-              Afiliado
+            <p style="text-align: center;">
+              {{ nombre_afiliado }}
             </p>
           </ion-card>
 
-          <ion-label class="Proceso" style="left: 131px; top: 110px; position: absolute; color: black; font-size: 14px; font-family: Inter; font-weight: 400; word-wrap: break-word">Proceso</ion-label>
+          <ion-label class="Proceso" style="left: 138px; top: 110px; position: absolute; color: black; font-size: 14px; font-family: Inter; font-weight: 400; word-wrap: break-word">Proceso</ion-label>
           
           <ion-progress-bar [value]="progress" style="width: 286px; height: 25px; left: 13px; top: 140px; position: absolute;"></ion-progress-bar>
           
