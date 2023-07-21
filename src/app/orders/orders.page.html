@@ -27,7 +27,35 @@
     <div class="Frame1" style="width: 330px; height: 551px; left: 0px; top: 0px; position: absolute">
       <ion-grid class="grid-container">
 
-        
+        <ion-card class="Frame1" style="width: 315px; height: 551px; left: 10px; top: 75px; position: absolute">
+
+          <ion-card style="width: 296px; height: 80px; left: -1px; top: 11px; position: absolute;">
+            <img class="FotoPerfil" src="{{ img }}" alt="">
+            <ion-title style="margin-left: 4em; margin-top: 5px;">
+              ID: {{ no_servicio }}
+            </ion-title>
+            <ion-title style="margin-left: 4em;">
+              {{ nombre_afiliado }}
+            </ion-title>
+            <ion-title style="margin-left: 4em;">
+              {{ estado | titlecase}}
+            </ion-title>
+          </ion-card>
+
+          <ion-card style="width: 296px; height: 80px; left: -1px; top: 100px; position: absolute;">
+            <img class="FotoPerfil" src="{{ img2 }}" alt="">
+            <ion-title style="margin-left: 4em; margin-top: 5px;">
+              ID: {{ no_servicio2 }}
+            </ion-title>
+            <ion-title style="margin-left: 5em; font-size: 16px;">
+              {{ nombre_afiliado2 }}
+            </ion-title>
+            <ion-title style="margin-left: 4em;">
+              {{ estado2 | titlecase}}
+            </ion-title>
+          </ion-card>
+
+        </ion-card>
 
       </ion-grid>
     </div>
