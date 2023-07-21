@@ -14,6 +14,7 @@ export class ProcessPage implements OnInit {
   id_afiliado: any;
   estado: any;
   nombre_afiliado: any;
+  telefono: any;
 
   constructor() { 
     setInterval(() => {
@@ -92,6 +93,7 @@ export class ProcessPage implements OnInit {
         console.log(afiliadoSeleccionado);
   
         this.nombre_afiliado = afiliadoSeleccionado.nombre_afiliado;
+        this.telefono = afiliadoSeleccionado.telefono;
       } else {
         console.log(`No se encontró ningún afiliado con ID ${id_af}`);
       }

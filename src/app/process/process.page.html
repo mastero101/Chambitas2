@@ -51,17 +51,27 @@
           <ion-label class="TrabajoEnCurso" style="left: 210px; top: 175px; position: absolute; color: black; font-size: 10px; font-family: Inter; font-weight: 400; word-wrap: break-word">Trabajo<br>&nbsp;&nbsp;&nbsp;&nbsp;en<br>&nbsp;Curso</ion-label>
           <ion-label class="Terminado" style="left: 260px; top: 175px; position: absolute; color: black; font-size: 10px; font-family: Inter; font-weight: 400; word-wrap: break-word">Terminado</ion-label>
           
-          <ion-button class="Whatsapp" style="left: 70px; top: 230px; position: absolute; color: white;" color="success">
+          <ion-button class="Whatsapp" style="left: 70px; top: 230px; position: absolute; color: white;" color="success"
+            [routerLink]="['/message']">
             <ion-icon name="logo-whatsapp"></ion-icon>
             <p style="margin-left: 0.3em;">
               Enviar Mensaje
             </p>
           </ion-button>
 
-          <ion-button class="Llamar" style="left: 110px; top: 280px; position: absolute; color: white;" color="warning">
+          <ion-button class="Llamar" style="left: 110px; top: 280px; position: absolute; color: white;" color="warning"
+            href="tel:{{ telefono }}">
             <ion-icon name="call-outline"></ion-icon>
             <p style="margin-left: 0.3em;">
               Llamar
+            </p>
+          </ion-button>
+
+          <ion-button class="Ordenes" style="left: 103px; top: 330px; position: absolute; color: white;" color="warning"
+            [routerLink]="['/orders']">
+            <ion-icon name="reader-outline"></ion-icon>
+            <p style="margin-left: 0.3em;">
+              Ordenes
             </p>
           </ion-button>
           

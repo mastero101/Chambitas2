@@ -35,6 +35,10 @@ const routes: Routes = [
     loadChildren: () => import('./process/process.module').then( m => m.ProcessPageModule)
   },
   {
+    path: 'orders',
+    loadChildren: () => import('./orders/orders.module').then( m => m.OrdersPageModule)
+  },
+  {
     path: '',
     redirectTo: 'home',
     pathMatch: 'full'
