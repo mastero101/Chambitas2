@@ -83,7 +83,8 @@ export class ProfilePage implements OnInit {
           this.horario_servicio = afiliadoSeleccionado.horario_servicio;
 
           this.horario_completo = afiliadoSeleccionado.horario_servicio_completo;
-          const horarioFormateado = this.horario_completo.replace(/ pm/g, ' pm\n');
+          const horarioFormateado = this.horario_completo.replace(/([A-Z])/g, '\n$1');
+          //const horarioFormateado = this.horario_completo.replace(/ pm/g, ' pm\n');
           this.horario_completo_formateado = horarioFormateado;
           
           this.estrellas = afiliadoSeleccionado.estrellas;

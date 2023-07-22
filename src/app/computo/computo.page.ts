@@ -31,6 +31,7 @@ export class ComputoPage implements OnInit {
   afiliados: any [] = [];
   afiliado1: any;
   afiliado2: any;
+  afiliado3: any;
 
   constructor() { }
 
@@ -77,6 +78,16 @@ export class ComputoPage implements OnInit {
         this.star3Selected2 = estrellas >= 3;
         this.star4Selected2 = estrellas >= 4;
         this.star5Selected2 = estrellas >= 5;
+      }
+
+      this.afiliado3 = this.afiliados.find(afiliado => afiliado.id === 3);
+      if (this.afiliado3) {
+        const estrellas = parseFloat(this.afiliado3.estrellas);
+        this.star1Selected3 = estrellas >= 1;
+        this.star2Selected3 = estrellas >= 2;
+        this.star3Selected3 = estrellas >= 3;
+        this.star4Selected3 = estrellas >= 4;
+        this.star5Selected3 = estrellas >= 5;
       }
 
         console.log(this.afiliados);
