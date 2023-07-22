@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 import axios from 'axios';
+
+import { ApiService } from '../api.service';
 
 @Component({
   selector: 'app-process',
@@ -16,38 +19,37 @@ export class ProcessPage implements OnInit {
   nombre_afiliado: any;
   telefono: any;
 
-  constructor() { 
+  constructor(private apiService: ApiService, private activatedRoute: ActivatedRoute) { 
     setInterval(() => {
       this.progress 
     }, 1000);
   }
 
   async ngOnInit() {
-    await this.getOrdenes()
-    this.getAfiliados();
+    this.activatedRoute.params.subscribe(async (params) => {
+      const id = Number(params['id']); // Obtenemos el valor del 'id' de la URL
+      await this.getOrdenes(id);
+      this.getAfiliados();
+    });
   }
 
-  async getOrdenes() {
-    const url = 'https://masteros.cloud/ordenes';
-    const id = 1; // ID deseado
+  async getOrdenes(id: number) {
   
     try {
-      const response = await axios.get(url);
-      this.ordenes = response.data;
-  
+      const ordenes = await this.apiService.getOrdenes();
       // Buscar el conjunto de datos por ID
-      const orden = this.ordenes.find((orden) => orden.id === id);
+      const orden = ordenes!.find((orden) => orden.id === id);
   
       if (orden) {
-        // Los datos de orden seleccionada están en la variable `orden`
+        // Los datos de la orden seleccionada están en la variable `orden`
         console.log(orden);
   
         this.no_servicio = orden.no_servicio;
         this.id_afiliado = orden.id_afiliado;
         this.estado = orden.estado;
-
-         // Actualizar el progreso según el estado obtenido
-         switch (this.estado) {
+  
+        // Actualizar el progreso según el estado obtenido
+        switch (this.estado) {
           case 'contacto':
             this.progress = 0.05;
             break;
@@ -74,6 +76,7 @@ export class ProcessPage implements OnInit {
       console.error('Error al obtener las órdenes:', error);
     }
   }
+  
   
   async getAfiliados() {
     const url = 'https://masteros.cloud/afiliados';
