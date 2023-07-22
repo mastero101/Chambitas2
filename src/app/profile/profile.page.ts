@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 import axios from 'axios';
 
 @Component({
@@ -11,20 +12,30 @@ export class ProfilePage implements OnInit {
   cardVisible: boolean = false;
   isCardExpanded: boolean = false;
   afiliados: any [] = [];
-  map: any;
   map2: any;
   horario_completo: any;
   img: any;
+  area_servicio: any;
+  nombre_afiliado: any;
+  profesion: any;
+  clasificacion: any;
+  precio: any;
+  horario_servicio: any;
+  horario_completo_formateado: any;
+  estrellas: any;
 
-  constructor() { }
+  constructor(private activatedRoute: ActivatedRoute) { }
 
   ngOnInit() {
-    this.getAfiliados();
+    this.activatedRoute.params.subscribe(async (params) => {
+      const id = Number(params['id']); // Obtenemos el valor del 'id' de la URL
+      this.getAfiliados(id);
+    });
   }
 
   copiarTexto() {
     const tempTextArea = document.createElement('textarea');
-    tempTextArea.value = this.map;
+    tempTextArea.value = this.area_servicio;
 
     document.body.appendChild(tempTextArea);
 
@@ -37,7 +48,7 @@ export class ProfilePage implements OnInit {
   }
 
   openGoogleMaps() {
-    const address = this.map;
+    const address = this.area_servicio;
     const encodedAddress = encodeURIComponent(address);
     const url = `https://www.google.com/maps/search/?api=1&query=${encodedAddress}`;
   
@@ -49,9 +60,8 @@ export class ProfilePage implements OnInit {
     this.isCardExpanded = !this.isCardExpanded;
   }
 
-  getAfiliados() {
+  getAfiliados(id: number) {
     const url = 'https://masteros.cloud/afiliados';
-    const id = 1; // ID deseado
   
     axios.get(url)
       .then(response => {
@@ -64,13 +74,20 @@ export class ProfilePage implements OnInit {
           // Los datos del afiliado seleccionado están en la variable `afiliadoSeleccionado`
           console.log(afiliadoSeleccionado);
 
-          this.map = afiliadoSeleccionado.area_servicio;
           this.img = afiliadoSeleccionado.img;
+          this.nombre_afiliado = afiliadoSeleccionado.nombre_afiliado;
+          this.profesion = afiliadoSeleccionado.profesion;
+          this.clasificacion = afiliadoSeleccionado.clasificacion;
+          this.precio = afiliadoSeleccionado.precio;
+          this.area_servicio = afiliadoSeleccionado.area_servicio;
+          this.horario_servicio = afiliadoSeleccionado.horario_servicio;
 
           this.horario_completo = afiliadoSeleccionado.horario_servicio_completo;
           const horarioFormateado = this.horario_completo.replace(/ pm/g, ' pm\n');
-          this.map2 = horarioFormateado;
+          this.horario_completo_formateado = horarioFormateado;
           
+          this.estrellas = afiliadoSeleccionado.estrellas;
+          console.log(this.estrellas);
         } else {
           console.log(`No se encontró ningún afiliado con ID ${id}`);
         }

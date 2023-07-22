@@ -32,7 +32,7 @@
       <ion-card-subtitle class="nombre">{{ afiliado1?.nombre_afiliado }}</ion-card-subtitle>
     </ion-card-header>
     <ion-card-content style="width:300px; height: 100px;">
-      <img class="Ellipse1" src="{{ afiliado1?.img }}" alt="" [routerLink]="['/profile']">
+      <img class="Ellipse1" src="{{ afiliado1?.img }}" alt="" [routerLink]="['/profile', { id: 1 }]">
       <ion-label class="certificaciones">Certificaciones</ion-label>
       <div class="medals">
         <ion-icon name="cloud-offline-outline" class="medal-icon"></ion-icon>
@@ -56,7 +56,7 @@
       <ion-card-subtitle class="nombre">{{ afiliado2?.nombre_afiliado }}</ion-card-subtitle>
     </ion-card-header>
     <ion-card-content style="width:300px; height: 100px;">
-      <img class="Ellipse1" src="{{ afiliado2?.img }}" alt="" [routerLink]="['/profile2']">
+      <img class="Ellipse1" src="{{ afiliado2?.img }}" alt="" [routerLink]="['/profile', { id: 2 }]">
       <ion-label class="certificaciones">Certificaciones</ion-label>
       <div class="medals">
         <ion-icon name="cloud-offline-outline" class="medal-icon" style="color: red;"></ion-icon>
@@ -80,7 +80,7 @@
       <ion-card-subtitle class="nombre">Nombre</ion-card-subtitle>
     </ion-card-header>
     <ion-card-content style="width:300px; height: 100px;">
-      <img class="Ellipse1" src="https://i.imgur.com/htTNKsG.jpg" alt="">
+      <img class="Ellipse1" src="https://i.imgur.com/htTNKsG.jpg" alt="" [routerLink]="['/profile', { id: 3 }]">
       <ion-label class="certificaciones">Certificaciones</ion-label>
       <div class="medals">
         <ion-icon name="cloud-offline-outline" class="medal-icon" style="color: red;"></ion-icon>
@@ -104,7 +104,7 @@
       <ion-card-subtitle class="nombre">Nombre</ion-card-subtitle>
     </ion-card-header>
     <ion-card-content style="width:300px; height: 100px;">
-      <img class="Ellipse1" src="https://i.imgur.com/YJEDO3X.jpg" alt="">
+      <img class="Ellipse1" src="https://i.imgur.com/YJEDO3X.jpg" alt="" [routerLink]="['/profile', { id: 4 }]">
       <ion-label class="certificaciones">Certificaciones</ion-label>
       <div class="medals">
         <ion-icon name="cloud-offline-outline" class="medal-icon"></ion-icon>

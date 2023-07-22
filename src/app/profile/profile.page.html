@@ -27,39 +27,39 @@
     <ion-grid class="grid-container">
       <img class="FotoPerfil" src="{{ img }}" alt="">
         <ion-card class="NombreAfiliado">
-          <ion-title class="TextoArea" style="margin-top: 0.9em; margin-left: 4.5em; font-size: large;" *ngFor="let afiliado of afiliados">
-            {{ afiliado.nombre_afiliado }}</ion-title>
+          <ion-title class="TextoArea" style="text-align: center; margin-top: 1em; font-size: large;">
+            {{ nombre_afiliado }}</ion-title>
         </ion-card>
         <ion-card class="Clasificacion" >
-          <ion-title class="TextoArea" style="margin-top: 0.2em; margin-left: 2em; font-size: large;color: white;" *ngFor="let afiliado of afiliados">
-            {{ afiliado.profesion }} - {{ afiliado.clasificacion }} - {{ afiliado.precio }}</ion-title>
+          <ion-title class="TextoArea" style="text-align: center; margin-top: 0.2em; font-size: large;color: white;">
+            {{ profesion }} - {{ clasificacion }} - {{ precio }}</ion-title>
         </ion-card>
         <ion-card class="AreaDeServicio">
-          <ion-title class="TextoArea" style="margin-top: 0.5em; margin-left: 0.5em; font-size: medium;">
+          <ion-title class="TextoArea" style="text-align: center; margin-top: 0.5em; font-size: medium;">
             <span id="textodireccion"  class="multi-linea">
-            {{ map }}
+            {{ area_servicio }}
             </span>
           </ion-title>
         </ion-card>
         <ion-card class="HorarioDeServicio">
-          <ion-title class="TextoArea"style="margin-top: 0.5em; margin-left: 4em; font-size:large; color:white;" *ngFor="let afiliado of afiliados">
-            {{ afiliado.horario_servicio }}</ion-title>
+          <ion-title class="TextoArea"style="text-align: center; margin-top: 0.5em; font-size:large; color:white;">
+            {{ horario_servicio }}</ion-title>
         </ion-card>
         <ion-card class="HorarioDeServicioCompleto" *ngIf="cardVisible">
           <span id="textodireccion"  class="multi-linea">
-            {{ map2 }}
+            {{ horario_completo_formateado }}
           </span>
         </ion-card>
         <ion-card class="BannerPromocional">
-          <ion-title class="TextoArea" style="margin-top: 0.2em; margin-left: 0.5em; font-size: small;">
+          <ion-title class="TextoArea" style="text-align: center; margin-top: 0.4em; font-size: small;">
             Obten un costo de envio de 0 MXN + -5%<br>
             Prueba Chambitas One+ para ahorrar en <br>
             servicios que cumplan con las condiciones
           </ion-title>
         </ion-card>
         <ion-card class="Calificaciones" [routerLink]="['/valoraciones']">
-          <ion-title class="TextoArea" style="margin-top: 0.55em; margin-left: 2.2em; color: white;" *ngFor="let afiliado of afiliados">
-            {{ afiliado.estrellas }} (31 Valoraciones)
+          <ion-title class="TextoArea" style="text-align: center; margin-top: 0.5em; color: white;">
+            {{ estrellas }} (31 Valoraciones)
           </ion-title>
         </ion-card>
 
