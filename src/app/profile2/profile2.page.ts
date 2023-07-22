@@ -20,6 +20,7 @@ export class Profile2Page implements OnInit {
   estrellas: any;
   horario_servicio: any;
   horario_completo: any;
+  img: any;
 
   constructor() { }
 
@@ -76,6 +77,7 @@ export class Profile2Page implements OnInit {
           this.map2 = horarioFormateado;
 
           this.nombre_afiliado = afiliadoSeleccionado.nombre_afiliado;
+          this.img = afiliadoSeleccionado.img;
           this.profesion = afiliadoSeleccionado.profesion;
           this.clasificacion = afiliadoSeleccionado.clasificacion;
           this.horario_servicio = afiliadoSeleccionado.horario_servicio;

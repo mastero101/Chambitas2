@@ -14,6 +14,7 @@ export class ProfilePage implements OnInit {
   map: any;
   map2: any;
   horario_completo: any;
+  img: any;
 
   constructor() { }
 
@@ -64,6 +65,7 @@ export class ProfilePage implements OnInit {
           console.log(afiliadoSeleccionado);
 
           this.map = afiliadoSeleccionado.area_servicio;
+          this.img = afiliadoSeleccionado.img;
 
           this.horario_completo = afiliadoSeleccionado.horario_servicio_completo;
           const horarioFormateado = this.horario_completo.replace(/ pm/g, ' pm\n');
