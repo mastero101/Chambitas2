@@ -1,7 +1,7 @@
 // api.service.ts
 
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import axios from 'axios';
 
 @Injectable({
   providedIn: 'root',
@@ -9,25 +9,27 @@ import { HttpClient } from '@angular/common/http';
 export class ApiService {
   private baseUrl = 'https://masteros.cloud';
 
-  constructor(private http: HttpClient) {}
-
   async getOrdenes() {
     const url = `${this.baseUrl}/ordenes`;
-    return this.http.get<any[]>(url).toPromise();
+    const response = await axios.get<any[]>(url);
+    return response.data;
   }
 
   async getOrdenById(id: number) {
     const url = `${this.baseUrl}/ordenes/${id}`;
-    return this.http.get<any>(url).toPromise();
+    const response = await axios.get<any>(url);
+    return response.data;
   }
 
   async getAfiliados() {
     const url = `${this.baseUrl}/afiliados`;
-    return this.http.get<any[]>(url).toPromise();
+    const response = await axios.get<any[]>(url);
+    return response.data;
   }
 
   async getAfiliadoById(id: number) {
     const url = `${this.baseUrl}/afiliados/${id}`;
-    return this.http.get<any>(url).toPromise();
+    const response = await axios.get<any>(url);
+    return response.data;
   }
 }
