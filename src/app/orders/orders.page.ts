@@ -21,6 +21,13 @@ export class OrdersPage implements OnInit {
   telefono2!: string;
   img2!: string;
 
+  no_servicio3!: string;
+  id_afiliado3!: number;
+  estado3!: string;
+  nombre_afiliado3!: string;
+  telefono3!: string;
+  img3!: string;
+
   constructor(private apiService: ApiService) {}
 
   async ngOnInit() {
@@ -57,6 +64,21 @@ export class OrdersPage implements OnInit {
       this.nombre_afiliado2 = afiliadoData2.nombre_afiliado;
       this.telefono2 = afiliadoData2.telefono;
       this.img2 = afiliadoData2.img;
+    }
+
+    // Obtener la tercera orden y afiliado
+    if (ordenes && ordenes.length > 2) {
+      const ordenData3 = ordenes[2];
+      this.no_servicio3 = ordenData3.no_servicio;
+      this.id_afiliado3 = ordenData3.id_afiliado;
+      this.estado3 = ordenData3.estado;
+    }
+
+    if (afiliados && afiliados.length > 2) {
+      const afiliadoData3 = afiliados[2];
+      this.nombre_afiliado3 = afiliadoData3.nombre_afiliado;
+      this.telefono3 = afiliadoData3.telefono;
+      this.img3 = afiliadoData3.img;
     }
   }
 }

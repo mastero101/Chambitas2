@@ -55,6 +55,19 @@
             </ion-title>
           </ion-card>
 
+          <ion-card style="width: 296px; height: 80px; left: -1px; top: 189px; position: absolute;">
+            <img class="FotoPerfil" src="{{ img3 }}" alt="" [routerLink]="['/process', { id: 3 }]">
+            <ion-title style="margin-left: 4em; margin-top: 5px;">
+              ID: {{ no_servicio3 }}
+            </ion-title>
+            <ion-title style="margin-left: 5.5em; font-size: 14.5px;">
+              {{ nombre_afiliado3 }}
+            </ion-title>
+            <ion-title style="margin-left: 4em;">
+              {{ estado3 | titlecase}}
+            </ion-title>
+          </ion-card>
+
         </ion-card>
 
       </ion-grid>
