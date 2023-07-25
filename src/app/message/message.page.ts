@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { ActivatedRoute } from '@angular/router';
 
 import axios from 'axios';
 
@@ -16,11 +17,17 @@ export class MessagePage implements OnInit {
   password: any;
   afiliados: any [] = [];
   telefono: any;
+  id: any;
+  idt: any;
 
-  constructor(private formBuilder: FormBuilder) {
+  constructor(private formBuilder: FormBuilder, private activatedRoute: ActivatedRoute) {
     this.msgForm = this.formBuilder.group({
       asunto: ['', Validators.required],
       mensaje: ['', Validators.required]
+    });
+    this.activatedRoute.params.subscribe(async (params) => {
+      const id = Number(params['id']); // Obtenemos el valor del 'id' de la URL
+      this.getAfiliados(id);
     });
   }
 
@@ -30,7 +37,7 @@ export class MessagePage implements OnInit {
       mensaje: ['', Validators.required]
     });
     this.getApikey();
-    this.getAfiliados();
+    this.getAfiliados(this.id);
   }
 
   getApikey() {
@@ -60,9 +67,8 @@ export class MessagePage implements OnInit {
       });
   }
 
-  getAfiliados() {
+  getAfiliados(id: number) {
     const url = 'https://masteros.cloud/afiliados';
-    const id = 1; // ID deseado
   
     axios.get(url)
       .then(response => {
@@ -76,9 +82,10 @@ export class MessagePage implements OnInit {
           console.log(afiliadoSeleccionado);
 
           this.telefono = afiliadoSeleccionado.telefono;
+          this.idt = afiliadoSeleccionado.id;
 
         } else {
-          console.log(`No se encontró ningún afiliado con ID ${id}`);
+          console.log(`No se encontró ningún afiliado con ID ${this.idt}`);
         }
       })
       .catch(error => {
@@ -90,8 +97,6 @@ export class MessagePage implements OnInit {
     if (this.msgForm.valid) {
       const asunto = this.msgForm.get('asunto')?.value;
       const mensaje = this.msgForm.get('mensaje')?.value;
-      console.log(asunto);
-      console.log(mensaje);
 
       // Enviar mensaje utilizando Axios o la biblioteca de tu elección
       try {
@@ -103,7 +108,7 @@ export class MessagePage implements OnInit {
             'From': 'whatsapp:+14155238886',
             'Body': `${asunto} - ${mensaje}`
           }),
-          {
+          { 
             auth: {
               username: this.user,
               password: this.password,

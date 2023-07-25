@@ -23,6 +23,7 @@ export class ProfilePage implements OnInit {
   horario_servicio: any;
   horario_completo_formateado: any;
   estrellas: any;
+  idc: any;
 
   constructor(private activatedRoute: ActivatedRoute) { }
 
@@ -74,6 +75,7 @@ export class ProfilePage implements OnInit {
           // Los datos del afiliado seleccionado están en la variable `afiliadoSeleccionado`
           console.log(afiliadoSeleccionado);
 
+          this.idc = afiliadoSeleccionado.id;
           this.img = afiliadoSeleccionado.img;
           this.nombre_afiliado = afiliadoSeleccionado.nombre_afiliado;
           this.profesion = afiliadoSeleccionado.profesion;
