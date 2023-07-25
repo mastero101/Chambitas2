@@ -62,10 +62,10 @@
 
 .resultados-busqueda {
   position: fixed;
-  top: 130px; /* Ajusta esta posición según necesites */
+  top: 160px;
   left: 30px;
   right: 30px;
   background-color: #fff; /* Color de fondo */
-  z-index: 999; /* Asegúrate de que tenga un valor mayor que el resto del contenido para que se muestre por encima */
+  z-index: 999; 
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Sombra */
 }
