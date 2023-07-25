@@ -38,19 +38,6 @@ export class ComputoPage implements OnInit {
   ngOnInit() {
     this.getAfiliados();
   }
-
-  selectStar(estrellas: number) {
-    this.estrellas1 = estrellas;
-    this.updateStarSelection();
-  }
-
-  updateStarSelection() {
-    this.star1Selected = this.estrellas1 >= 1;
-    this.star2Selected = this.estrellas1 >= 2;
-    this.star3Selected = this.estrellas1 >= 3;
-    this.star4Selected = this.estrellas1 >= 4;
-    this.star5Selected = this.estrellas1 >= 5;
-  }
   
   getAfiliados() {
     const url = 'https://masteros.cloud/afiliados';

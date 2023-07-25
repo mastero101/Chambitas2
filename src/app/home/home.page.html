@@ -27,7 +27,23 @@
           </ion-menu-toggle>
         </ion-buttons>
       </div>
-      <ion-searchbar class="busqueda" placeholder="Buscar"></ion-searchbar>
+
+      <ion-searchbar class="busqueda" placeholder="Buscar" (ionChange)="buscar($event)"></ion-searchbar>
+
+        <div class="resultados-busqueda" *ngIf="mostrandoResultados">
+          <ion-list>
+            <ion-item *ngFor="let afiliado of afiliados" [routerLink]="['/profile', { id: afiliado.id }]">
+              <ion-label>
+                {{ afiliado.nombre_afiliado }} - {{ afiliado.profesion }}
+              </ion-label>
+            </ion-item>
+          </ion-list>
+        </div>
+
+        <div *ngIf="!mostrandoResultados && afiliados.length === 0">
+          No se encontraron resultados.
+        </div>
+
       <div class="botones">
         <ion-row>
           <ion-col>

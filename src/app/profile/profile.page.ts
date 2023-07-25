@@ -88,7 +88,6 @@ export class ProfilePage implements OnInit {
           this.horario_completo_formateado = horarioFormateado;
           
           this.estrellas = afiliadoSeleccionado.estrellas;
-          console.log(this.estrellas);
         } else {
           console.log(`No se encontró ningún afiliado con ID ${id}`);
         }
