@@ -7,6 +7,8 @@ import { IonicModule } from '@ionic/angular';
 import { MessagePageRoutingModule } from './message-routing.module';
 
 import { MessagePage } from './message.page';
+import { NavBarPageModule } from '../nav-bar/nav-bar.module';
+import { NavBar2PageModule } from '../nav-bar2/nav-bar2.module';
 
 @NgModule({
   imports: [
@@ -15,7 +17,9 @@ import { MessagePage } from './message.page';
     IonicModule,
     MessagePageRoutingModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    NavBarPageModule,
+    NavBar2PageModule
   ],
   declarations: [MessagePage]
 })

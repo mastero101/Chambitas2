@@ -10,10 +10,18 @@ import { NavBarPageModule } from './nav-bar/nav-bar.module';
 
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+import { NavBar2PageModule } from './nav-bar2/nav-bar2.module';
 
 @NgModule({
   declarations: [AppComponent],
-  imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule, NavBarPageModule, FormsModule, ReactiveFormsModule, HttpClientModule],
+  imports: [BrowserModule, 
+            IonicModule.forRoot(), 
+            AppRoutingModule, 
+            NavBarPageModule,
+            NavBar2PageModule, 
+            FormsModule, 
+            ReactiveFormsModule, 
+            HttpClientModule],
   exports: [],
   providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy }],
   bootstrap: [AppComponent],

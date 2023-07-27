@@ -7,13 +7,17 @@ import { IonicModule } from '@ionic/angular';
 import { ValoracionesPageRoutingModule } from './valoraciones-routing.module';
 
 import { ValoracionesPage } from './valoraciones.page';
+import { NavBarPageModule } from '../nav-bar/nav-bar.module';
+import { NavBar2PageModule } from '../nav-bar2/nav-bar2.module';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    ValoracionesPageRoutingModule
+    ValoracionesPageRoutingModule,
+    NavBarPageModule,
+    NavBar2PageModule
   ],
   declarations: [ValoracionesPage]
 })

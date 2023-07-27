@@ -8,6 +8,7 @@ import { ComputoPageRoutingModule } from './computo-routing.module';
 
 import { ComputoPage } from './computo.page';
 import { NavBarPageModule } from "../nav-bar/nav-bar.module";
+import { NavBar2PageModule } from '../nav-bar2/nav-bar2.module';
 
 @NgModule({
     declarations: [ComputoPage],
@@ -16,7 +17,8 @@ import { NavBarPageModule } from "../nav-bar/nav-bar.module";
         FormsModule,
         IonicModule,
         ComputoPageRoutingModule,
-        NavBarPageModule
+        NavBarPageModule,
+        NavBar2PageModule
     ]
 })
 export class ComputoPageModule {}

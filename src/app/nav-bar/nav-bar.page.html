@@ -1,25 +1,11 @@
-<ion-menu contentId="nav-bar" type="push" side="end" style="--width: 130px">
-  <ion-content class="ion-padding">
-    <ion-button class="menu-button" [routerLink]="['/nav']">Perfil</ion-button>
-    <ion-button class="menu-button" [routerLink]="['/']" routerLinkActive="router-link-active">Mensajes</ion-button>
-    <ion-button class="menu-button">Ver Mas</ion-button>
-    <ion-button class="menu-button">Menu</ion-button>
-    <ion-menu-toggle auto-hide="false">
-      <ion-button class="menu-button">X</ion-button>
+<div class="Logo">
+  <ion-back-button defaultHref="/" style="margin-right: -5%;margin-left: -10%;"></ion-back-button>
+  <img src="https://i.imgur.com/mpHMg1E.png" alt="Banner">
+  <ion-buttons slot="start">
+    <ion-menu-toggle>
+      <ion-button class="SquareButton" fill="clear">
+        <ion-icon name="person-outline" size="large"></ion-icon>
+      </ion-button>
     </ion-menu-toggle>
-  </ion-content>
-</ion-menu>
-
-<ion-content class="nav-bar" id="nav-bar">
-    <div class="Logo">
-      <ion-back-button defaultHref="/" style="margin-right: -5%;margin-left: -10%;"></ion-back-button>
-      <img src="https://i.imgur.com/mpHMg1E.png" alt="Banner" />
-      <ion-buttons slot="start">
-        <ion-menu-toggle>
-          <ion-button class="SquareButton" fill="clear">
-            <ion-icon name="person-outline" size="large"></ion-icon>
-          </ion-button>
-        </ion-menu-toggle>
-      </ion-buttons>
-    </div>
-</ion-content>
+  </ion-buttons>
+</div>
