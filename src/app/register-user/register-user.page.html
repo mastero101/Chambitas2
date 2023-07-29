@@ -1,0 +1,48 @@
+<app-nav-bar2></app-nav-bar2>
+
+<ion-content id="main-content" scroll-y="true">
+  <app-nav-bar></app-nav-bar>
+   <ion-content class="ion-padding">
+    <form [formGroup]="registrationForm" (ngSubmit)="onSubmit()">
+      <ion-item>
+        <ion-label position="stacked">Nombre</ion-label>
+        <ion-input formControlName="nombre" type="text"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label position="stacked">Imagen</ion-label>
+        <ion-input formControlName="img" type="text"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label position="stacked">ID de Usuario</ion-label>
+        <ion-input formControlName="id_usuario" type="number"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label position="stacked">Dirección</ion-label>
+        <ion-input formControlName="direccion" type="text"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label position="stacked">Teléfono</ion-label>
+        <ion-input formControlName="telefono" type="number"></ion-input>
+      </ion-item>
+  
+      <!-- Mostrar mensaje de error si el campo es inválido -->
+      <div *ngIf="registrationForm.get('nombre')?.invalid && registrationForm.get('nombre')?.touched">
+        <ion-text color="danger">El nombre es requerido.</ion-text>
+      </div>
+      <div *ngIf="registrationForm.get('img')?.invalid && registrationForm.get('img')?.touched">
+        <ion-text color="danger">La imagen es requerida.</ion-text>
+      </div>
+      <div *ngIf="registrationForm.get('id_usuario')?.invalid && registrationForm.get('id_usuario')?.touched">
+        <ion-text color="danger">El ID de usuario es requerido.</ion-text>
+      </div>
+      <div *ngIf="registrationForm.get('direccion')?.invalid && registrationForm.get('direccion')?.touched">
+        <ion-text color="danger">La dirección es requerida.</ion-text>
+      </div>
+      <div *ngIf="registrationForm.get('telefono')?.invalid && registrationForm.get('telefono')?.touched">
+        <ion-text color="danger">El teléfono es requerido.</ion-text>
+      </div>
+  
+      <ion-button style="margin-top: 2em;" type="submit" [disabled]="!registrationForm.valid" expand="full">Registrar</ion-button>
+    </form>
+   </ion-content>
+</ion-content>
