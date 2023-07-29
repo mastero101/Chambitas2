@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-
+import axios from 'axios';
 
 @Component({
   selector: 'app-register-user',
@@ -25,7 +25,16 @@ export class RegisterUserPage implements OnInit {
   onSubmit() {
     if (this.registrationForm.valid) {
       const formData = this.registrationForm.value;
-      // Aquí puedes realizar la lógica para enviar formData al backend para el registro.
+
+       // Realiza la solicitud HTTP con Axios
+       axios.post('http://127.0.0.1:3000/registro_usuario', formData)
+       .then(response => {
+         console.log(response.data);
+       })
+       .catch(error => {
+         console.error('Error al registrar el usuario:', error.response.data.message);
+       });
+
       console.log(formData);
     }
   }

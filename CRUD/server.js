@@ -104,6 +104,38 @@ app.post('/add', (req, res) => {
     });
 });
 
+app.post('/registro_usuario', (req, res) => {
+    const { nombre, img, id_usuario, direccion, telefono } = req.body;
+  
+    // Verifica si todos los campos requeridos están presentes
+    if (!nombre || !img || !id_usuario || !direccion || !telefono) {
+      return res.status(400).json({ message: 'Todos los campos son requeridos.' });
+    }
+  
+    // Verifica que los campos cumplan con ciertas restricciones (opcional)
+    if (nombre.length > 255 || img.length > 255 || id_usuario.length > 255 || direccion.length > 255 || telefono.length > 255) {
+      return res.status(400).json({ message: 'Los campos exceden la longitud máxima permitida (255 caracteres).' });
+    }
+  
+    const usuario = {
+      nombre: nombre,
+      img: img,
+      id_usuario: id_usuario,
+      direccion: direccion,
+      telefono: telefono
+    };
+  
+    const sql = 'INSERT INTO usuarios SET ?';
+    connection.query(sql, usuario, error => {
+      if (error) {
+        console.error('Error al registrar el afiliado:', error);
+        res.status(500).json({ message: 'Error al registrar el afiliado.' });
+      } else {
+        res.status(201).json({ message: 'Afiliado creado exitosamente.' });
+      }
+    });
+});
+
 app.put('/update/:id', (req, res) => {
     const { id } = req.params;
     const { nombre } = req.body;
