@@ -32,4 +32,10 @@ export class ApiService {
     const response = await axios.get<any>(url);
     return response.data;
   }
+
+  async getUsuarios() {
+    const url = `${this.baseUrl}/usuarios`;
+    const response = await axios.get<any[]>(url);
+    return response.data;
+  }
 }

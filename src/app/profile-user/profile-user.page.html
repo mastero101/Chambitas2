@@ -5,21 +5,21 @@
   <ion-content class="ion-padding">
     <ion-card>
       <div class="profile-image">
-        <img src="https://i.imgur.com/lEhgbUA.jpg" alt="Foto de perfil" />
+        <img src="{{ img }}" alt="Foto de perfil" />
       </div>
       <ion-card-header>
         <ion-card-title> </ion-card-title>
-        <ion-card-subtitle>Usuario - 5142</ion-card-subtitle>
+        <ion-card-subtitle>Usuario - {{ id_usuario }}</ion-card-subtitle>
       </ion-card-header>
       <ion-card-content>
         <ion-item>
-          <ion-input label="Nombre:" value="Dominos Pizza" readonly></ion-input>
+          <ion-input label="Nombre:" value="{{ nombre }}" readonly></ion-input>
         </ion-item>
         <ion-item>
-          <ion-input label="Direccion:" value="Calle 44 #321" readonly></ion-input>
+          <ion-input label="Direccion:" value="{{ direccion }}" readonly></ion-input>
         </ion-item>
         <ion-item>
-          <ion-input label="Telefono:" value="9991212423" readonly></ion-input>
+          <ion-input label="Telefono:" value="{{ telefono }}" readonly></ion-input>
         </ion-item>
       </ion-card-content>
     </ion-card>
