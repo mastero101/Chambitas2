@@ -27,7 +27,7 @@ export class RegisterUserPage implements OnInit {
       const formData = this.registrationForm.value;
 
        // Realiza la solicitud HTTP con Axios
-       axios.post('mastero.cloud/registro_usuario', formData)
+       axios.post('https://masteros.cloud/registro_usuario', formData)
        .then(response => {
          console.log(response.data);
        })
