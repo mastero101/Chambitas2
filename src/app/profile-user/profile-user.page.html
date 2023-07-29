@@ -13,18 +13,16 @@
       </ion-card-header>
       <ion-card-content>
         <ion-item>
-          <ion-label>Nombre -</ion-label>
-          <ion-input value="Dominos Pizza" readonly></ion-input>
+          <ion-input label="Nombre:" value="Dominos Pizza" readonly></ion-input>
         </ion-item>
         <ion-item>
-          <ion-label>Dirección -</ion-label>
-          <ion-input value="Calle 44 #321" readonly></ion-input>
+          <ion-input label="Direccion:" value="Calle 44 #321" readonly></ion-input>
         </ion-item>
         <ion-item>
-          <ion-label>Teléfono - </ion-label>
-          <ion-input value="9991212423" readonly></ion-input>
+          <ion-input label="Telefono:" value="9991212423" readonly></ion-input>
         </ion-item>
       </ion-card-content>
     </ion-card>
+    <ion-button style="margin-left: 8em;" [routerLink]="['/orders']">Ordenes</ion-button>
   </ion-content>
 </ion-content>
