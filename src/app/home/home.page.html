@@ -18,7 +18,7 @@
         </ion-buttons>
       </div>
 
-      <ion-searchbar class="busqueda" placeholder="Buscar" (ionChange)="buscar($event)"></ion-searchbar>
+      <ion-searchbar class="busqueda" placeholder="Buscar" (ionInput)="buscar($event)"></ion-searchbar>
 
         <div class="resultados-busqueda" *ngIf="mostrandoResultados">
           <ion-list>

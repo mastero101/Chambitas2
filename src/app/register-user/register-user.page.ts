@@ -36,6 +36,7 @@ export class RegisterUserPage implements OnInit {
        });
 
       console.log(formData);
+      alert("Usuario Resgistrado")
     }
   }
 

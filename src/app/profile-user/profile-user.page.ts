@@ -22,7 +22,7 @@ export class ProfileUserPage implements OnInit {
   }
 
   async getUsuarios() {
-    const id = 3;
+    const id = 1;
   
     try {
       const ordenes = await this.apiService.getUsuarios();
@@ -46,4 +46,5 @@ export class ProfileUserPage implements OnInit {
       console.error('Error al obtener las órdenes:', error);
     }
   }
+
 }
