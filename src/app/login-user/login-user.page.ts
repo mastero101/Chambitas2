@@ -22,7 +22,7 @@ export class LoginUserPage implements OnInit {
     .then((response) => {
       // Verifica el resultado del backend y toma acciones en consecuencia
       if (response.data.message === 'Login successful') {
-        console.log("login successful");
+        console.log("Inicio Exitoso");
         alert("Login Successful")
         this.router.navigate(['/home']);
       } else {
@@ -31,6 +31,7 @@ export class LoginUserPage implements OnInit {
     })
     .catch((error) => {
       console.log('Error de autenticación:', error);
+      alert("Error de Inicio de Sesion, usuario o contraseña incorrectos");
     });
   }
 }
