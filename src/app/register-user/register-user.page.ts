@@ -19,6 +19,7 @@ export class RegisterUserPage implements OnInit {
       id_usuario: ['', Validators.required],
       direccion: ['', Validators.required],
       telefono: ['', Validators.required],
+      password: ['', Validators.required],
     });
   }
 

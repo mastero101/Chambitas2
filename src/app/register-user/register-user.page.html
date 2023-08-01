@@ -17,6 +17,10 @@
         <ion-input formControlName="id_usuario" type="number"></ion-input>
       </ion-item>
       <ion-item>
+        <ion-label position="stacked">Contraseña</ion-label>
+        <ion-input formControlName="password" type="text"></ion-input>
+      </ion-item>
+      <ion-item>
         <ion-label position="stacked">Dirección</ion-label>
         <ion-input formControlName="direccion" type="text"></ion-input>
       </ion-item>
@@ -32,14 +36,17 @@
       <div *ngIf="registrationForm.get('img')?.invalid && registrationForm.get('img')?.touched">
         <ion-text color="danger">La imagen es requerida.</ion-text>
       </div>
-      <div *ngIf="registrationForm.get('id_usuario')?.invalid && registrationForm.get('id_usuario')?.touched">
-        <ion-text color="danger">El ID de usuario es requerido.</ion-text>
-      </div>
       <div *ngIf="registrationForm.get('direccion')?.invalid && registrationForm.get('direccion')?.touched">
         <ion-text color="danger">La dirección es requerida.</ion-text>
       </div>
       <div *ngIf="registrationForm.get('telefono')?.invalid && registrationForm.get('telefono')?.touched">
         <ion-text color="danger">El teléfono es requerido.</ion-text>
+      </div>
+      <div *ngIf="registrationForm.get('id_usuario')?.invalid && registrationForm.get('id_usuario')?.touched">
+        <ion-text color="danger">El ID de usuario es requerido.</ion-text>
+      </div>
+      <div *ngIf="registrationForm.get('password')?.invalid && registrationForm.get('password')?.touched">
+        <ion-text color="danger">La contraseña es requerido.</ion-text>
       </div>
   
       <ion-button style="margin-top: 2em;" type="submit" [disabled]="!registrationForm.valid" expand="full">Registrar</ion-button>
