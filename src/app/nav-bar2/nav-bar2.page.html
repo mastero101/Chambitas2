@@ -1,4 +1,4 @@
-<ion-menu contentId="main-content" side="end" style="--width: 135px; --height:290px;">
+<ion-menu contentId="main-content" side="end" style="--width: 135px; --height:335px;">
   <!--
   <ion-avatar style="width: 65px; height:65px; top: 20px; left: 20px;">
     <img src="https://ionicframework.com/docs/img/demos/avatar.svg" />
@@ -10,8 +10,9 @@
     <ion-button class="menu-button" [routerLink]="['/message']">Mensajes</ion-button>
     <ion-button class="menu-button" [routerLink]="['/orders']">Ver Mas</ion-button>
     <ion-button color="danger" class="menu-button" [routerLink]="['/register-user']">Registro</ion-button>
+    <ion-button color="success" class="menu-button" [routerLink]="['/login-user']">Login</ion-button>
     <ion-menu-toggle auto-hide="false">
-      <ion-button class="menu-button">X</ion-button>
+      <ion-button class="menu-button" shape="round" style="width: 3px; margin-left: 1.8em; margin-top: 1em;">X</ion-button>
     </ion-menu-toggle>
   </ion-content>
 </ion-menu>
