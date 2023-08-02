@@ -20,11 +20,11 @@ export class LoginUserPage implements OnInit {
   onSubmit() {
     this.authService.login(this.usuario, this.contrasena)
     .then((response) => {
-      // Verifica el resultado del backend y toma acciones en consecuencia
+      
       if (response.data.message === 'Login successful') {
         console.log("Inicio Exitoso");
         alert("Login Successful")
-        this.router.navigate(['/home']);
+        this.router.navigate(['/profile-user']);
       } else {
         console.log('Error de autenticación:', response.data.message);
       }

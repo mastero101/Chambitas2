@@ -1,70 +1,69 @@
-<ion-content class="AndroidSmall1" style="width: 360px; height: 667px; position: relative; background: white">
-  <app-nav-bar2></app-nav-bar2>
+<app-nav-bar2></app-nav-bar2>
 
-  <ion-content id="main-content" scroll-y="true">
-    <app-nav-bar></app-nav-bar>
+<ion-content id="main-content" scroll-y="true">
+  <app-nav-bar></app-nav-bar>
 
-    <div class="Frame1" style="width: 330px; height: 551px; left: 12.5px; top: 83px; position: absolute">
-      <ion-grid class="grid-container">
+  <div class="Frame1" style="width: 330px; height: 551px; left: 12.5px; top: 83px; position: absolute">
+    <ion-grid class="grid-container">
 
-        <form [formGroup]="msgForm" (ngSubmit)="whatsapp()" novalidate>
-          <ion-card style="height: 4.5em;">
-            <ion-item lines="full">
-              <ion-label position="floating">Asunto</ion-label>
-              <ion-input formControlName="asunto" type="text" aria-label="Asunto"></ion-input>
-            </ion-item>
-            <div *ngIf="msgForm.controls['asunto'].touched && msgForm.controls['asunto'].invalid">
-              <div class="ion-padding" *ngIf="msgForm.controls['asunto'].errors?.['required']">
-                <ion-text color="danger">El asunto es requerido.</ion-text>
-              </div>
+      <form [formGroup]="msgForm" (ngSubmit)="whatsapp()" novalidate>
+        <ion-card style="height: 4.5em;">
+          <ion-item lines="full">
+            <ion-label position="floating">Asunto</ion-label>
+            <ion-input formControlName="asunto" type="text" aria-label="Asunto"></ion-input>
+          </ion-item>
+          <div *ngIf="msgForm.controls['asunto'].touched && msgForm.controls['asunto'].invalid">
+            <div class="ion-padding" *ngIf="msgForm.controls['asunto'].errors?.['required']">
+              <ion-text color="danger">El asunto es requerido.</ion-text>
             </div>
-          </ion-card>
+          </div>
+        </ion-card>
 
-          <ion-card style="height: 25em;">
-            <ion-item lines="full">
-              <ion-label position="floating">Mensaje</ion-label>
-              <ion-textarea formControlName="mensaje" aria-label="Mensaje" style="height: 24em;"></ion-textarea>
-            </ion-item>
-            <div *ngIf="msgForm.controls['mensaje'].touched && msgForm.controls['mensaje'].invalid">
-              <div class="ion-padding" *ngIf="msgForm.controls['mensaje'].errors?.['required']">
-                <ion-text color="danger">El mensaje es requerido.</ion-text>
-              </div>
+        <ion-card style="height: 25em;">
+          <ion-item lines="full">
+            <ion-label position="floating">Mensaje</ion-label>
+            <ion-textarea formControlName="mensaje" aria-label="Mensaje" style="height: 24em;"></ion-textarea>
+          </ion-item>
+          <div *ngIf="msgForm.controls['mensaje'].touched && msgForm.controls['mensaje'].invalid">
+            <div class="ion-padding" *ngIf="msgForm.controls['mensaje'].errors?.['required']">
+              <ion-text color="danger">El mensaje es requerido.</ion-text>
             </div>
-          </ion-card>
+          </div>
+        </ion-card>
 
-          <ion-button style="margin-left: 5.5em;" color="success" type="submit" [disabled]="msgForm.invalid">
-            <ion-icon name="logo-whatsapp"></ion-icon>
-            <p style="margin-left: 0.3em;">
-              Enviar Mensaje
-            </p>
-          </ion-button>
-        </form>
-
-        <ion-button style="margin-left: 8em;" color="warning" href="tel:{{ telefono }}">
-          <ion-icon name="call-outline"></ion-icon>
+        <ion-button style="margin-left: 5.5em;" color="success" type="submit" [disabled]="msgForm.invalid">
+          <ion-icon name="logo-whatsapp"></ion-icon>
           <p style="margin-left: 0.3em;">
-            Llamar
+            Enviar Mensaje
           </p>
         </ion-button>
+      </form>
 
-        <!--
-        <ion-button style="margin-left: 7.5em;" color="warning" [routerLink]="['/process']">
-          <ion-icon name="call-outline"></ion-icon>
-          <p style="margin-left: 0.3em;">
-            Proceso
-          </p>
-        </ion-button>
-        -->
+      <ion-button style="margin-left: 8em;" color="warning" href="tel:{{ telefono }}">
+        <ion-icon name="call-outline"></ion-icon>
+        <p style="margin-left: 0.3em;">
+          Llamar
+        </p>
+      </ion-button>
 
-        <ion-button class="Ordenes" style="margin-left: 7.5em;" color="warning"
-            [routerLink]="['/orders']">
-          <ion-icon name="reader-outline"></ion-icon>
-          <p style="margin-left: 0.3em;">
-            Ordenes
-          </p>
-        </ion-button>
+      <!--
+      <ion-button style="margin-left: 7.5em;" color="warning" [routerLink]="['/process']">
+        <ion-icon name="call-outline"></ion-icon>
+        <p style="margin-left: 0.3em;">
+          Proceso
+        </p>
+      </ion-button>
+      -->
 
-      </ion-grid>
-    </div>
-  </ion-content>
+      <ion-button class="Ordenes" style="margin-left: 7.5em;" color="warning"
+          [routerLink]="['/orders']">
+        <ion-icon name="reader-outline"></ion-icon>
+        <p style="margin-left: 0.3em;">
+          Ordenes
+        </p>
+      </ion-button>
+
+    </ion-grid>
+  </div>
 </ion-content>
+

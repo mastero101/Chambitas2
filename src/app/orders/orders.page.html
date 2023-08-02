@@ -1,56 +1,54 @@
-<ion-content class="AndroidSmall1" style="width: 360px; height: 667px; position: relative; background: white">
-  <app-nav-bar2></app-nav-bar2>
-  
-  <ion-content id="main-content" scroll-y="true">
-    <app-nav-bar></app-nav-bar>
+<app-nav-bar2></app-nav-bar2>
 
-    <div class="Frame1" style="width: 330px; height: 551px; left: 0px; top: 0px; position: absolute">
-      <ion-grid class="grid-container">
+<ion-content id="main-content" scroll-y="true">
+  <app-nav-bar></app-nav-bar>
 
-        <ion-card class="Frame1" style="width: 315px; height: 551px; left: 10px; top: 75px; position: absolute">
+  <div class="Frame1" style="width: 330px; height: 551px; left: 0px; top: 0px; position: absolute">
+    <ion-grid class="grid-container">
 
-          <ion-card style="width: 296px; height: 80px; left: -1px; top: 11px; position: absolute;">
-            <img class="FotoPerfil" src="{{ img }}" alt="" [routerLink]="['/process', { id: 1 }]">
-            <ion-title style="margin-left: 4em; margin-top: 5px;">
-              ID: {{ no_servicio }}
-            </ion-title>
-            <ion-title style="margin-left: 4em;">
-              {{ nombre_afiliado }}
-            </ion-title>
-            <ion-title style="margin-left: 4em;">
-              {{ estado | titlecase}}
-            </ion-title>
-          </ion-card>
+      <ion-card class="Frame1" style="width: 315px; height: 551px; left: 10px; top: 75px; position: absolute">
 
-          <ion-card style="width: 296px; height: 80px; left: -1px; top: 100px; position: absolute;">
-            <img class="FotoPerfil" src="{{ img2 }}" alt="" [routerLink]="['/process', { id: 2 }]">
-            <ion-title style="margin-left: 4em; margin-top: 5px;">
-              ID: {{ no_servicio2 }}
-            </ion-title>
-            <ion-title style="margin-left: 5em; font-size: 16px;">
-              {{ nombre_afiliado2 }}
-            </ion-title>
-            <ion-title style="margin-left: 4em;">
-              {{ estado2 | titlecase}}
-            </ion-title>
-          </ion-card>
-
-          <ion-card style="width: 296px; height: 80px; left: -1px; top: 189px; position: absolute;">
-            <img class="FotoPerfil" src="{{ img3 }}" alt="" [routerLink]="['/process', { id: 3 }]">
-            <ion-title style="margin-left: 4em; margin-top: 5px;">
-              ID: {{ no_servicio3 }}
-            </ion-title>
-            <ion-title style="margin-left: 5.5em; font-size: 14.5px;">
-              {{ nombre_afiliado3 }}
-            </ion-title>
-            <ion-title style="margin-left: 4em;">
-              {{ estado3 | titlecase}}
-            </ion-title>
-          </ion-card>
-
+        <ion-card style="width: 296px; height: 80px; left: -1px; top: 11px; position: absolute;">
+          <img class="FotoPerfil" src="{{ img }}" alt="" [routerLink]="['/process', { id: 1 }]">
+          <ion-title style="margin-left: 4em; margin-top: 5px;">
+            ID: {{ no_servicio }}
+          </ion-title>
+          <ion-title style="margin-left: 4em;">
+            {{ nombre_afiliado }}
+          </ion-title>
+          <ion-title style="margin-left: 4em;">
+            {{ estado | titlecase}}
+          </ion-title>
         </ion-card>
 
-      </ion-grid>
-    </div>
-  </ion-content>
+        <ion-card style="width: 296px; height: 80px; left: -1px; top: 100px; position: absolute;">
+          <img class="FotoPerfil" src="{{ img2 }}" alt="" [routerLink]="['/process', { id: 2 }]">
+          <ion-title style="margin-left: 4em; margin-top: 5px;">
+            ID: {{ no_servicio2 }}
+          </ion-title>
+          <ion-title style="margin-left: 5em; font-size: 16px;">
+            {{ nombre_afiliado2 }}
+          </ion-title>
+          <ion-title style="margin-left: 4em;">
+            {{ estado2 | titlecase}}
+          </ion-title>
+        </ion-card>
+
+        <ion-card style="width: 296px; height: 80px; left: -1px; top: 189px; position: absolute;">
+          <img class="FotoPerfil" src="{{ img3 }}" alt="" [routerLink]="['/process', { id: 3 }]">
+          <ion-title style="margin-left: 4em; margin-top: 5px;">
+            ID: {{ no_servicio3 }}
+          </ion-title>
+          <ion-title style="margin-left: 5.5em; font-size: 14.5px;">
+            {{ nombre_afiliado3 }}
+          </ion-title>
+          <ion-title style="margin-left: 4em;">
+            {{ estado3 | titlecase}}
+          </ion-title>
+        </ion-card>
+
+      </ion-card>
+
+    </ion-grid>
+  </div>
 </ion-content>

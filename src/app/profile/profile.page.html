@@ -1,72 +1,70 @@
-<ion-content class="AndroidSmall1" style="width: 360px; height: 667px; position: relative; background: white">
-  <app-nav-bar2></app-nav-bar2>
-  
-  <ion-content id="main-content" scroll-y="true">
-    <app-nav-bar></app-nav-bar>
-  <div class="Frame1" style="width: 315px; height: 551px; left: 12.5px; top: 83px; position: absolute">
-    <ion-grid class="grid-container">
-      <img class="FotoPerfil" src="{{ img }}" alt="">
-        <ion-card class="NombreAfiliado">
-          <ion-title class="TextoArea" style="text-align: center; margin-top: 1em; font-size: large;">
-            {{ nombre_afiliado }}</ion-title>
-        </ion-card>
-        <ion-card class="Clasificacion" >
-          <ion-title class="TextoArea" style="text-align: center; margin-top: 0.2em; font-size: large;color: white;">
-            {{ profesion }} - {{ clasificacion }} - {{ precio }}</ion-title>
-        </ion-card>
-        <ion-card class="AreaDeServicio">
-          <ion-title class="TextoArea" style="text-align: center; margin-top: 0.5em; font-size: medium;">
-            <span id="textodireccion"  class="multi-linea">
-            {{ area_servicio }}
-            </span>
-          </ion-title>
-        </ion-card>
-        <ion-card class="HorarioDeServicio">
-          <ion-title class="TextoArea"style="text-align: center; margin-top: 0.5em; font-size:large; color:white;">
-            {{ horario_servicio }}</ion-title>
-        </ion-card>
-        <ion-card class="HorarioDeServicioCompleto" *ngIf="cardVisible">
+<app-nav-bar2></app-nav-bar2>
+
+<ion-content id="main-content" scroll-y="true">
+  <app-nav-bar></app-nav-bar>
+<div class="Frame1" style="width: 315px; height: 551px; left: 12.5px; top: 83px; position: absolute">
+  <ion-grid class="grid-container">
+    <img class="FotoPerfil" src="{{ img }}" alt="">
+      <ion-card class="NombreAfiliado">
+        <ion-title class="TextoArea" style="text-align: center; margin-top: 1em; font-size: large;">
+          {{ nombre_afiliado }}</ion-title>
+      </ion-card>
+      <ion-card class="Clasificacion" >
+        <ion-title class="TextoArea" style="text-align: center; margin-top: 0.2em; font-size: large;color: white;">
+          {{ profesion }} - {{ clasificacion }} - {{ precio }}</ion-title>
+      </ion-card>
+      <ion-card class="AreaDeServicio">
+        <ion-title class="TextoArea" style="text-align: center; margin-top: 0.5em; font-size: medium;">
           <span id="textodireccion"  class="multi-linea">
-            {{ horario_completo_formateado }}
+          {{ area_servicio }}
           </span>
-        </ion-card>
-        <ion-card class="BannerPromocional">
-          <ion-title class="TextoArea" style="text-align: center; margin-top: 0.4em; font-size: small;">
-            Obten un costo de envio de 0 MXN + -5%<br>
-            Prueba Chambitas One+ para ahorrar en <br>
-            servicios que cumplan con las condiciones
-          </ion-title>
-        </ion-card>
-        <ion-card class="Calificaciones" [routerLink]="['/valoraciones']">
-          <ion-title class="TextoArea" style="text-align: center; margin-top: 0.5em; color: white;">
-            {{ estrellas }} (31 Valoraciones)
-          </ion-title>
-        </ion-card>
+        </ion-title>
+      </ion-card>
+      <ion-card class="HorarioDeServicio">
+        <ion-title class="TextoArea"style="text-align: center; margin-top: 0.5em; font-size:large; color:white;">
+          {{ horario_servicio }}</ion-title>
+      </ion-card>
+      <ion-card class="HorarioDeServicioCompleto" *ngIf="cardVisible">
+        <span id="textodireccion"  class="multi-linea">
+          {{ horario_completo_formateado }}
+        </span>
+      </ion-card>
+      <ion-card class="BannerPromocional">
+        <ion-title class="TextoArea" style="text-align: center; margin-top: 0.4em; font-size: small;">
+          Obten un costo de envio de 0 MXN + -5%<br>
+          Prueba Chambitas One+ para ahorrar en <br>
+          servicios que cumplan con las condiciones
+        </ion-title>
+      </ion-card>
+      <ion-card class="Calificaciones" [routerLink]="['/valoraciones']">
+        <ion-title class="TextoArea" style="text-align: center; margin-top: 0.5em; color: white;">
+          {{ estrellas }} (31 Valoraciones)
+        </ion-title>
+      </ion-card>
 
-        <ion-button class="Contacto" color="tertiary" [routerLink]="['/message', { id: idc }]">
-            Contacto
-        </ion-button>
+      <ion-button class="Contacto" color="tertiary" [routerLink]="['/message', { id: idc }]">
+          Contacto
+      </ion-button>
 
-        <div class="IconsaxLinearLocation" style="width: 24px; height: 24px; left: 13px; top: 320px; position: absolute">
-          <ion-icon name="location" class="side-icons" (click)="openGoogleMaps()"></ion-icon>
-        </div>
-        <div class="IconsaxLinearCopy" style="width: 24px; height: 24px; left: 298px; top: 320px; position: absolute">
-          <ion-icon name="copy" class="side-icons" (click)="copiarTexto()"></ion-icon>
-        </div>
-        <div class="IconsaxLinearClock" style="width: 24px; height: 24px; left: 13px; top: 381px; position: absolute; color:white;">
-          <ion-icon name="time" class="side-icons"></ion-icon>
-        </div>
-        <div class="IconsaxLinearAdd" style="width: 24px; height: 24px; left: 295px; top: 381px; position: absolute; color:white;">
-          <ion-icon name="chevron-forward" class="side-icons" *ngIf="!isCardExpanded" (click)="toggleCard()"></ion-icon>
-          <ion-icon name="chevron-down" class="side-icons" *ngIf="isCardExpanded" (click)="toggleCard()"></ion-icon>
-        </div>
-        <div class="IconsaxLinearShoppingbag" style="width: 24px; height: 24px; left: 13px; top: 435px; position: absolute">
-          <ion-icon name="bag-handle" class="side-icons"></ion-icon>
-        </div>
-        <div class="IconsaxLinearStar1" style="width: 24px; height: 24px; left: 17px; top: 493px; position: absolute; color: yellow;">
-          <ion-icon name="star" class="side-icons"></ion-icon>
-        </div>
-      </ion-grid>
-    </div>
-  </ion-content>
+      <div class="IconsaxLinearLocation" style="width: 24px; height: 24px; left: 13px; top: 320px; position: absolute">
+        <ion-icon name="location" class="side-icons" (click)="openGoogleMaps()"></ion-icon>
+      </div>
+      <div class="IconsaxLinearCopy" style="width: 24px; height: 24px; left: 298px; top: 320px; position: absolute">
+        <ion-icon name="copy" class="side-icons" (click)="copiarTexto()"></ion-icon>
+      </div>
+      <div class="IconsaxLinearClock" style="width: 24px; height: 24px; left: 13px; top: 381px; position: absolute; color:white;">
+        <ion-icon name="time" class="side-icons"></ion-icon>
+      </div>
+      <div class="IconsaxLinearAdd" style="width: 24px; height: 24px; left: 295px; top: 381px; position: absolute; color:white;">
+        <ion-icon name="chevron-forward" class="side-icons" *ngIf="!isCardExpanded" (click)="toggleCard()"></ion-icon>
+        <ion-icon name="chevron-down" class="side-icons" *ngIf="isCardExpanded" (click)="toggleCard()"></ion-icon>
+      </div>
+      <div class="IconsaxLinearShoppingbag" style="width: 24px; height: 24px; left: 13px; top: 435px; position: absolute">
+        <ion-icon name="bag-handle" class="side-icons"></ion-icon>
+      </div>
+      <div class="IconsaxLinearStar1" style="width: 24px; height: 24px; left: 17px; top: 493px; position: absolute; color: yellow;">
+        <ion-icon name="star" class="side-icons"></ion-icon>
+      </div>
+    </ion-grid>
+  </div>
 </ion-content>
