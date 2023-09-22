@@ -13,30 +13,10 @@
 .busqueda {
   width: 100%;
   height: 57px;
-  margin-top: 5%;
+  margin-top: 28%;
   background: white;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   border: 0.5px black solid;
-}
-
-.Logo {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  width: 100%;
-  max-width: 240px;
-  text-align: center;
-  margin-top: 45%;
-}
-
-.SquareButton {
-  width: 56px;
-  height: 56px;
-  margin-left: 20%;
-  background-color: transparent;
-  border: 1px solid black;
-  background: #f4f2f2;
-  border-radius: 50%;
 }
 
 .banner1,
@@ -48,16 +28,11 @@
 }
 
 .botones {
-  margin-top: 5%;
+  margin-top: 3%;
 }
 
 .ion-padding {
   width: 120px;
-}
-
-.menu-button {
-  width: 120%;
-  text-align: left;
 }
 
 .resultados-busqueda {

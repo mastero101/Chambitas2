@@ -1,7 +1,10 @@
 <div class="Logo">
-  <ion-back-button defaultHref="/" style="margin-right: -5%;margin-left: -10%;"></ion-back-button>
-  <img src="https://i.imgur.com/mpHMg1E.png" alt="Banner">
   <ion-buttons slot="start">
+    <ion-button (click)="reloadPage()" fill="clear" style="margin-left: -10.5%; margin-top: 0%;" *ngIf="mostrarBotonRecarga">
+      <ion-icon name="refresh"></ion-icon>
+    </ion-button>
+    <ion-back-button defaultHref="./" style="margin-right: -5%;margin-left: -10%;" *ngIf="!mostrarBotonRecarga"></ion-back-button>
+    <img src="https://i.imgur.com/mpHMg1E.png" alt="Banner">
     <ion-menu-toggle>
       <ion-button class="SquareButton" fill="clear">
         <ion-icon name="person-outline" size="large"></ion-icon>
@@ -9,3 +12,7 @@
     </ion-menu-toggle>
   </ion-buttons>
 </div>
+
+
+
+

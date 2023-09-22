@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { NavigationEnd, Router } from '@angular/router';
 
 @Component({
   selector: 'app-nav-bar',
@@ -6,10 +7,19 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./nav-bar.page.scss'],
 })
 export class NavBarPage implements OnInit {
+  mostrarBotonRecarga: boolean = false;
 
-  constructor() { }
+  constructor(private router: Router) { }
 
   ngOnInit() {
+    this.router.events.subscribe((event) => {
+      if (event instanceof NavigationEnd) {
+        this.mostrarBotonRecarga = this.router.url === '/home';
+      }
+    });
   }
 
+  reloadPage(): void {
+    window.location.reload();
+  }
 }
