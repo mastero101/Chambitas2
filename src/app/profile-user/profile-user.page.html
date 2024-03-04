@@ -23,6 +23,7 @@
         </ion-item>
       </ion-card-content>
     </ion-card>
-    <ion-button style="margin-left: 8em;" [routerLink]="['/orders']">Ordenes</ion-button>
+    <ion-button expand="block" style="margin-top: 1em;" [routerLink]="['/orders']">Ordenes</ion-button>
+    <ion-button (click)="logout()" expand="block" color="danger" style="margin-top: 1em;">Cerrar sesión</ion-button>
   </ion-content>
 </ion-content>

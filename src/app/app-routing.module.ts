@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
+import { JwtAuthGuard } from './jwt-auth.guard';
 
 const routes: Routes = [
   {
@@ -41,7 +42,8 @@ const routes: Routes = [
   },
   {
     path: 'profile-user',
-    loadChildren: () => import('./profile-user/profile-user.module').then( m => m.ProfileUserPageModule)
+    loadChildren: () => import('./profile-user/profile-user.module').then( m => m.ProfileUserPageModule),
+    canActivate: [JwtAuthGuard] // Guardia de Ruta JWT auth
   },
   {
     path: 'register-user',

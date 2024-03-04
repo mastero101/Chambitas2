@@ -8,6 +8,7 @@ import axios from 'axios';
 })
 export class ApiService {
   private baseUrl = 'https://masteros.cloud';
+  private baseUrl2 = 'http://localhost:3000';
 
   async getOrdenes() {
     const url = `${this.baseUrl}/ordenes`;

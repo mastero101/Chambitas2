@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-
+import { Router } from '@angular/router';
 import { ApiService } from '../api.service';
 
 @Component({
@@ -15,7 +15,7 @@ export class ProfileUserPage implements OnInit {
   direccion: any;
   img: any;
 
-  constructor(private apiService: ApiService) { }
+  constructor(private apiService: ApiService, private router: Router) { }
 
   ngOnInit() {
     this.getUsuarios();
@@ -45,6 +45,14 @@ export class ProfileUserPage implements OnInit {
     } catch (error) {
       console.error('Error al obtener las órdenes:', error);
     }
+  }
+
+  logout() {
+    // Eliminar el token JWT del almacenamiento local
+    localStorage.removeItem('token');
+    
+    // Redirigir al usuario a la página de inicio de sesión
+    this.router.navigate(['/login-user']);
   }
 
 }

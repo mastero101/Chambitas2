@@ -1,16 +1,20 @@
+require('dotenv').config();
 const mysql = require('mysql');
 const express = require('express');
 const session = require('express-session');
 const path = require('path');
-const cors = require('cors'); // Importa el módulo cors
+const cors = require('cors');
+const jwt = require('jsonwebtoken');
+
+const jwtSecret = process.env.JWT_SECRET;
 
 // Configura la conexión a la base de datos
 const connection = mysql.createConnection({
-    host: 'mysql212.mysql.database.azure.com',
-    user: 'mastero',
-    password: 'Alejandrof15',
-    database: 'chambitas',
-    port: 3306,
+    host: process.env.DB_HOST,
+    user: process.env.DB_USER,
+    password: process.env.DB_PASSWORD,
+    database: process.env.DB_DATABASE,
+    port: process.env.DB_PORT,
     ssl: {
       rejectUnauthorized: false // Habilita la conexión sin verificar el certificado SSL
     }
@@ -47,11 +51,10 @@ app.post('/auth', function(request, response) {
             if (error) throw error;
             // If the account exists
             if (results.length > 0) {
-                // Authenticate the user
-                request.session.loggedin = true;
-                request.session.id_usuario = id_usuario;
-                // Redirect to home page
-                response.status(200).json({ message: 'Login successful' });
+                // Generate JWT token
+                const token = jwt.sign({ id_usuario }, jwtSecret, { expiresIn: '1h' }); // Se expira en 1 hora, puedes ajustar esto según tus necesidades
+                // Respond with token
+                response.status(200).json({ message: 'Login successful', token });
                 console.log("Login successful");
             } else {
                 response.status(401).json({ message: 'Incorrect Username and/or Password!' });
