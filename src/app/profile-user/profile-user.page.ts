@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+
 import { ApiService } from '../api.service';
 
 @Component({
@@ -22,34 +23,46 @@ export class ProfileUserPage implements OnInit {
   }
 
   async getUsuarios() {
-    const id = 1;
-  
     try {
-      const ordenes = await this.apiService.getUsuarios();
-      // Buscar el conjunto de datos por ID
-      const orden = ordenes!.find((orden) => orden.id === id);
+      const idUsuario = localStorage.getItem('id_usuario');
   
-      if (ordenes) {
-        // Los datos de la orden seleccionada están en la variable `orden`
-        console.log(ordenes);
-  
-        this.nombre = orden.nombre;
-        this.img = orden.img;
-        this.id_usuario = orden.id_usuario;
-        this.direccion = orden.direccion;
-        this.telefono = orden.telefono;
-  
-      } else {
-        console.log(`No se encontró ninguna orden con ID ${id}`);
+      if (!idUsuario) {
+        console.error('No se encontró el id_usuario en el almacenamiento local');
+        return;
       }
+  
+      const ordenes = await this.apiService.getUsuarios();
+      
+      if (!ordenes || ordenes.length === 0) {
+        console.log(`No se encontraron datos de usuarios`);
+        return;
+      }
+  
+      // Buscar el conjunto de datos por id_usuario
+      const usuario = ordenes.find((orden) => orden.id_usuario === idUsuario);
+  
+      if (!usuario) {
+        console.log(`No se encontró ningún usuario con id_usuario ${idUsuario}`);
+        return;
+      }
+  
+      // Los datos del usuario seleccionado están en la variable `usuario`
+      console.log(usuario);
+  
+      this.nombre = usuario.nombre;
+      this.img = usuario.img;
+      this.id_usuario = usuario.id_usuario;
+      this.direccion = usuario.direccion;
+      this.telefono = usuario.telefono;
     } catch (error) {
-      console.error('Error al obtener las órdenes:', error);
+      console.error('Error al obtener los datos del usuario:', error);
     }
   }
 
   logout() {
     // Eliminar el token JWT del almacenamiento local
     localStorage.removeItem('token');
+    localStorage.removeItem('id_usuario');
     
     // Redirigir al usuario a la página de inicio de sesión
     this.router.navigate(['/login-user']);

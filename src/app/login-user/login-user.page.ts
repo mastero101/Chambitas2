@@ -24,6 +24,7 @@ export class LoginUserPage implements OnInit {
       if (response.data.message === 'Login successful') {
         console.log("Inicio Exitoso");
         alert("Login Successful")
+        localStorage.setItem('id_usuario', this.usuario);
         this.router.navigate(['/profile-user']);
       } else {
         console.log('Error de autenticación:', response.data.message);
