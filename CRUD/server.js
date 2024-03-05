@@ -134,7 +134,7 @@ app.get('/ordenes', (req, res) => {
 });
 
 app.get('/usuarios', (req, res) => {
-    const sql = 'SELECT * FROM usuarios';
+    const sql = 'SELECT id,nombre,id_usuario, telefono, direccion, img FROM usuarios';
 
     connection.query(sql, (error, results) => {
         if (error) throw error;
