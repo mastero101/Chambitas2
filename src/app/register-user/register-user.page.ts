@@ -9,6 +9,8 @@ import axios from 'axios';
 })
 export class RegisterUserPage implements OnInit {
   registrationForm: FormGroup = new FormGroup({});
+  endpoint = 'https://masteros.cloud/registro_usuario'
+  endpoint2 = 'http://localhost:3000/registro_usuario'
 
   constructor(private formBuilder: FormBuilder) { }
 
@@ -28,7 +30,7 @@ export class RegisterUserPage implements OnInit {
       const formData = this.registrationForm.value;
 
        // Realiza la solicitud HTTP con Axios
-       axios.post('https://masteros.cloud/registro_usuario', formData)
+       axios.post(this.endpoint, formData)
        .then(response => {
          console.log(response.data);
        })
@@ -37,7 +39,7 @@ export class RegisterUserPage implements OnInit {
        });
 
       console.log(formData);
-      alert("Usuario Resgistrado")
+      alert("Usuario Registrado")
     }
   }
 

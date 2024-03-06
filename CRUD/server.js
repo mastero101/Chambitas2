@@ -5,6 +5,7 @@ const session = require('express-session');
 const path = require('path');
 const cors = require('cors');
 const jwt = require('jsonwebtoken');
+const bcrypt = require('bcrypt');
 
 const jwtSecret = process.env.JWT_SECRET;
 
@@ -39,29 +40,79 @@ app.get('/', function(request, response) {
     response.sendFile(path.join(__dirname + '/login.html'));
 });
 
+//Ruta para actualizar las contraseñas no hasheadas en la base de datos
+app.get('/hash-passwords', async function(request, response) {
+    try {
+        // Identificar contraseñas no hasheadas
+        const usersWithPlainPasswords = await new Promise((resolve, reject) => {
+            connection.query('SELECT * FROM usuarios WHERE password NOT LIKE "$2b$%"', function(error, results, fields) {
+                if (error) {
+                    reject(error);
+                } else {
+                    resolve(results);
+                }
+            });
+        });
+
+        // Para cada usuario con contraseña no hasheada, actualizar la contraseña hasheada
+        for (const user of usersWithPlainPasswords) {
+            const plainPassword = user.password; // Contraseña sin hashear
+            const saltRounds = Number(process.env.SALT_ROUNDS);
+            const hashedPassword = await bcrypt.hash(plainPassword, saltRounds); // Generar hash bcrypt
+            // Actualizar la contraseña hasheada en la base de datos
+            await new Promise((resolve, reject) => {
+                connection.query('UPDATE usuarios SET password = ? WHERE id_usuario = ?', [hashedPassword, user.id_usuario], function(error, results, fields) {
+                    if (error) {
+                        reject(error);
+                    } else {
+                        console.log(`Contraseña actualizada para el usuario con id ${user.id_usuario}`);
+                        resolve();
+                    }
+                });
+            });
+        }
+
+        response.status(200).json({ message: 'Contraseñas actualizadas correctamente.' });
+    } catch (error) {
+        console.error('Error al actualizar las contraseñas:', error);
+        response.status(500).json({ message: 'Error al actualizar las contraseñas.' });
+    }
+});
+
 app.post('/auth', function(request, response) {
     // Capture the input fields
     let id_usuario = request.body.id_usuario;
     let password = request.body.password;
     // Ensure the input fields exist and are not empty
     if (id_usuario && password) {
-        // Execute SQL query that'll select the account from the database based on the specified username and password
-        connection.query('SELECT * FROM usuarios WHERE id_usuario = ? AND password = ?', [id_usuario, password], function(error, results, fields) {
+        // Execute SQL query that'll select the account from the database based on the specified username
+        connection.query('SELECT * FROM usuarios WHERE id_usuario = ?', [id_usuario], async function(error, results, fields) {
             // If there is an issue with the query, output the error
             if (error) throw error;
             // If the account exists
             if (results.length > 0) {
-                // Generate JWT token
-                const token = jwt.sign({ id_usuario }, jwtSecret, { expiresIn: '1h' }); // Se expira en 1 hora, puedes ajustar esto según tus necesidades
-                // Respond with token
-                response.status(200).json({ message: 'Login successful', token });
-                console.log("Login successful");
+                // Get the stored hashed password
+                const hashedPassword = results[0].password;
+                // Compare the hashed password with the provided password
+                const match = await bcrypt.compare(password, hashedPassword);
+                if (match) {
+                    // Passwords match, generate JWT token
+                    const token = jwt.sign({ id_usuario }, jwtSecret, { expiresIn: '1h' }); // Expira en 1 hora
+                    // Respond with token
+                    response.status(200).json({ message: 'Login successful', token });
+                    console.log("Login successful");
+                } else {
+                    // Passwords don't match
+                    response.status(401).json({ message: 'Incorrect Username and/or Password!' });
+                }
             } else {
+                // Account not found
                 response.status(401).json({ message: 'Incorrect Username and/or Password!' });
             }
             response.end();
         });
     } else {
+        // Username or password not provided
         response.status(400).json({ message: 'Please enter Username and Password!' });
         response.end();
     }
@@ -78,8 +129,6 @@ app.get('/home', function(request, response) {
     }
     response.end();
 });
-
-// CRUD
 
 app.get('/afiliados', (req, res) => {
     const sql = 'SELECT * FROM afiliados';
@@ -159,37 +208,44 @@ app.post('/add', (req, res) => {
     });
 });
 
-app.post('/registro_usuario', (req, res) => {
+app.post('/registro_usuario', async (req, res) => {
     const { nombre, img, id_usuario, direccion, telefono, password } = req.body;
-  
+
     // Verifica si todos los campos requeridos están presentes
     if (!nombre || !img || !id_usuario || !direccion || !telefono || !password) {
-      return res.status(400).json({ message: 'Todos los campos son requeridos.' });
+        return res.status(400).json({ message: 'Todos los campos son requeridos.' });
     }
-  
+
     // Verifica que los campos cumplan con ciertas restricciones (opcional)
     if (nombre.length > 255 || img.length > 255 || id_usuario.length > 255 || direccion.length > 255 || telefono.length > 255 || password.length > 255) {
-      return res.status(400).json({ message: 'Los campos exceden la longitud máxima permitida (255 caracteres).' });
+        return res.status(400).json({ message: 'Los campos exceden la longitud máxima permitida (255 caracteres).' });
     }
-  
-    const usuario = {
-      nombre: nombre,
-      img: img,
-      id_usuario: id_usuario,
-      direccion: direccion,
-      telefono: telefono,
-      password: password
-    };
-  
-    const sql = 'INSERT INTO usuarios SET ?';
-    connection.query(sql, usuario, error => {
-      if (error) {
-        console.error('Error al registrar el afiliado:', error);
-        res.status(500).json({ message: 'Error al registrar el afiliado.' });
-      } else {
-        res.status(201).json({ message: 'Afiliado creado exitosamente.' });
-      }
-    });
+
+    try {
+        const saltRounds = Number(process.env.SALT_ROUNDS);
+        const hashedPassword = await bcrypt.hash(password, saltRounds); // 10 es el número de saltRounds
+        const usuario = {
+            nombre: nombre,
+            img: img,
+            id_usuario: id_usuario,
+            direccion: direccion,
+            telefono: telefono,
+            password: hashedPassword
+        };
+
+        const sql = 'INSERT INTO usuarios SET ?';
+        connection.query(sql, usuario, error => {
+            if (error) {
+                console.error('Error al registrar el usuario:', error);
+                res.status(500).json({ message: 'Error al registrar el usuario.' });
+            } else {
+                res.status(201).json({ message: 'Usuario creado exitosamente.' });
+            }
+        });
+    } catch (error) {
+        console.error('Error al encriptar la contraseña:', error);
+        res.status(500).json({ message: 'Error al encriptar la contraseña.' });
+    }
 });
 
 app.put('/update/:id', (req, res) => {
