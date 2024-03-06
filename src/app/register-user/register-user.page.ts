@@ -38,7 +38,6 @@ export class RegisterUserPage implements OnInit {
          console.error('Error al registrar el usuario:', error.response.data.message);
        });
 
-      console.log(formData);
       alert("Usuario Registrado")
     }
   }
