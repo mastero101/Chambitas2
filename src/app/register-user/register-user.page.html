@@ -28,6 +28,10 @@
         <ion-label position="stacked">Teléfono</ion-label>
         <ion-input formControlName="telefono" type="number"></ion-input>
       </ion-item>
+      <ion-item>
+        <ion-label position="stacked">Correo</ion-label>
+        <ion-input formControlName="correo" type="text"></ion-input>
+      </ion-item>
   
       <!-- Mostrar mensaje de error si el campo es inválido -->
       <div *ngIf="registrationForm.get('nombre')?.invalid && registrationForm.get('nombre')?.touched">

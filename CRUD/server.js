@@ -212,15 +212,15 @@ app.post('/add', (req, res) => {
 });
 
 app.post('/registro_usuario', async (req, res) => {
-    const { nombre, img, id_usuario, direccion, telefono, password } = req.body;
+    const { nombre, img, id_usuario, direccion, telefono, password, correo } = req.body;
 
     // Verifica si todos los campos requeridos están presentes
-    if (!nombre || !img || !id_usuario || !direccion || !telefono || !password) {
+    if (!nombre || !img || !id_usuario || !direccion || !telefono || !password || !correo) {
         return res.status(400).json({ message: 'Todos los campos son requeridos.' });
     }
 
     // Verifica que los campos cumplan con ciertas restricciones (opcional)
-    if (nombre.length > 255 || img.length > 255 || id_usuario.length > 255 || direccion.length > 255 || telefono.length > 255 || password.length > 255) {
+    if (nombre.length > 255 || img.length > 255 || id_usuario.length > 255 || direccion.length > 255 || telefono.length > 255 || password.length > 255 || correo.length > 255) {
         return res.status(400).json({ message: 'Los campos exceden la longitud máxima permitida (255 caracteres).' });
     }
 
@@ -249,7 +249,8 @@ app.post('/registro_usuario', async (req, res) => {
             id_usuario: id_usuario,
             direccion: direccion,
             telefono: telefono,
-            password: hashedPassword
+            password: hashedPassword,
+            correo: correo
         };
 
         const sql = 'INSERT INTO usuarios SET ?';

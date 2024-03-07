@@ -10,8 +10,8 @@ import { v4 as uuidv4 } from 'uuid';
 })
 export class RegisterUserPage implements OnInit {
   registrationForm: FormGroup = new FormGroup({});
-  endpoint = 'https://masteros.cloud/registro_usuario'
-  endpoint2 = 'http://localhost:3000/registro_usuario'
+  endpoint = 'https://masteros.cloud'
+  endpoint2 = 'http://localhost:3000'
 
   constructor(private formBuilder: FormBuilder) { }
 
@@ -25,6 +25,7 @@ export class RegisterUserPage implements OnInit {
       direccion: ['', Validators.required],
       telefono: ['', Validators.required],
       password: ['', Validators.required],
+      correo: ['', Validators.required],
     });
   }
 
@@ -34,9 +35,10 @@ export class RegisterUserPage implements OnInit {
       const idUsuario = this.registrationForm.value.id_usuario;
       const password = this.registrationForm.value.password;
       const telefono = this.registrationForm.value.telefono;
+      const correo = this.registrationForm.value.correo;
 
        // Realiza la solicitud HTTP con Axios
-       axios.post(this.endpoint, formData)
+       axios.post(this.endpoint + '/registro_usuario', formData)
        .then(response => {
          console.log(response.data);
        })
@@ -46,6 +48,7 @@ export class RegisterUserPage implements OnInit {
 
       alert("Usuario Registrado")
       this.sendSMS(idUsuario , password, telefono);
+      this.sendEmail(idUsuario, password, telefono, correo);
     }
   }
 
@@ -55,11 +58,29 @@ export class RegisterUserPage implements OnInit {
     data.append('password', password);
     data.append('telefono', telefono);
     
-    return axios.post('https://masteros.cloud/sms', data.toString(), {
+    return axios.post(this.endpoint + '/sm', data.toString(), {
       headers: {
         'Content-Type': 'application/x-www-form-urlencoded'
       }
     });
+  }
+
+  sendEmail(idUsuario: string, password: string, telefono: string, correo: string) {
+    const emailData = {
+      id_usuario: idUsuario,
+      password: password,
+      telefono: telefono,
+      correo: correo,
+    };
+
+    // Realizar la solicitud HTTP para enviar el correo electrónico
+    axios.post(this.endpoint + '/send_email', emailData)
+      .then(response => {
+        console.log('Correo electrónico enviado:', response.data);
+      })
+      .catch(error => {
+        console.error('Error al enviar el correo electrónico:', error);
+      });
   }
 
 }
