@@ -6,8 +6,11 @@ const path = require('path');
 const cors = require('cors');
 const jwt = require('jsonwebtoken');
 const bcrypt = require('bcrypt');
+const axios = require('axios');
 
 const jwtSecret = process.env.JWT_SECRET;
+const accountSid = process.env.TWILLIO_ACC_SID;
+const authToken = process.env.TWILLIO_ACC_TOKEN;
 
 // Configura la conexión a la base de datos
 const connection = mysql.createConnection({
@@ -222,6 +225,22 @@ app.post('/registro_usuario', async (req, res) => {
     }
 
     try {
+        // Verificar si ya existe un usuario con el mismo id_usuario
+        const existingUser = await new Promise((resolve, reject) => {
+            connection.query('SELECT * FROM usuarios WHERE id_usuario = ?', [id_usuario], function(error, results, fields) {
+                if (error) {
+                    reject(error);
+                } else {
+                    resolve(results[0]);
+                }
+            });
+        });
+
+        if (existingUser) {
+            // Si ya existe un usuario con el mismo id_usuario, devolver un mensaje indicando que el usuario ya está registrado
+            return res.status(409).json({ message: 'Ya existe un usuario con el mismo ID de usuario.' });
+        }
+
         const saltRounds = Number(process.env.SALT_ROUNDS);
         const hashedPassword = await bcrypt.hash(password, saltRounds); // 10 es el número de saltRounds
         const usuario = {
@@ -246,6 +265,39 @@ app.post('/registro_usuario', async (req, res) => {
         console.error('Error al encriptar la contraseña:', error);
         res.status(500).json({ message: 'Error al encriptar la contraseña.' });
     }
+});
+
+app.post('/sms', (req, res) => {
+    const id_usuario = req.body.id_usuario;
+    const password = req.body.password;
+    const telefono = req.body.telefono;
+    const from = '+19286156449';
+    const to = `+52${telefono}`;
+
+    const body = `Datos de Acceso Chambitas\n\nid_usuario: ${id_usuario}\npassword: ${password}`;
+    
+    const url = `https://api.twilio.com/2010-04-01/Accounts/${accountSid}/Messages.json`;
+    
+    const data = new URLSearchParams();
+        data.append('Body', body);
+        data.append('From', from);
+        data.append('To', to);
+    
+    axios.post(url, data, {
+        auth: {
+            username: accountSid,
+            password: authToken
+        },
+        headers: {
+            'Content-Type': 'application/x-www-form-urlencoded'
+        }
+    })
+    .then(response => {
+        res.status(200).send(response.data);
+    })
+    .catch(error => {
+        res.status(500).send(error);
+    });
 });
 
 app.put('/update/:id', (req, res) => {

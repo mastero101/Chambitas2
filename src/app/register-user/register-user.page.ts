@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import axios from 'axios';
+import { v4 as uuidv4 } from 'uuid';
 
 @Component({
   selector: 'app-register-user',
@@ -15,10 +16,12 @@ export class RegisterUserPage implements OnInit {
   constructor(private formBuilder: FormBuilder) { }
 
   ngOnInit() {
+    const id_usuario = uuidv4().slice(0, 6);
+
     this.registrationForm = this.formBuilder.group({
       nombre: ['', Validators.required],
       img: ['', Validators.required],
-      id_usuario: ['', Validators.required],
+      id_usuario: [id_usuario, Validators.required],
       direccion: ['', Validators.required],
       telefono: ['', Validators.required],
       password: ['', Validators.required],
@@ -28,6 +31,9 @@ export class RegisterUserPage implements OnInit {
   onSubmit() {
     if (this.registrationForm.valid) {
       const formData = this.registrationForm.value;
+      const idUsuario = this.registrationForm.value.id_usuario;
+      const password = this.registrationForm.value.password;
+      const telefono = this.registrationForm.value.telefono;
 
        // Realiza la solicitud HTTP con Axios
        axios.post(this.endpoint, formData)
@@ -39,7 +45,21 @@ export class RegisterUserPage implements OnInit {
        });
 
       alert("Usuario Registrado")
+      this.sendSMS(idUsuario , password, telefono);
     }
+  }
+
+  sendSMS(idUsuario: string, password: string, telefono: string) {
+    const data = new URLSearchParams();
+    data.append('id_usuario', idUsuario);
+    data.append('password', password);
+    data.append('telefono', telefono);
+    
+    return axios.post('https://masteros.cloud/sms', data.toString(), {
+      headers: {
+        'Content-Type': 'application/x-www-form-urlencoded'
+      }
+    });
   }
 
 }
