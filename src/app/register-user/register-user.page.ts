@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import axios from 'axios';
 import { v4 as uuidv4 } from 'uuid';
 
@@ -13,7 +14,7 @@ export class RegisterUserPage implements OnInit {
   endpoint = 'https://masteros.cloud'
   endpoint2 = 'http://localhost:3000'
 
-  constructor(private formBuilder: FormBuilder) { }
+  constructor(private formBuilder: FormBuilder, private router: Router) { }
 
   ngOnInit() {
     const id_usuario = uuidv4().slice(0, 6);
@@ -47,8 +48,17 @@ export class RegisterUserPage implements OnInit {
        });
 
       alert("Usuario Registrado")
+      // Envio de SMS de confirmacion
       this.sendSMS(idUsuario , password, telefono);
+
+      // Envio de Email de confirmacion
       this.sendEmail(idUsuario, password, telefono, correo);
+
+      // Limpiar el formulario
+      this.registrationForm.reset();
+
+      // Redirigir a la página de inicio de sesión
+      this.router.navigate(['/login-user']);
     }
   }
 

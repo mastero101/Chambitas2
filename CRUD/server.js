@@ -11,6 +11,7 @@ const axios = require('axios');
 const jwtSecret = process.env.JWT_SECRET;
 const accountSid = process.env.TWILLIO_ACC_SID;
 const authToken = process.env.TWILLIO_ACC_TOKEN;
+const mailersend_apikey = process.env.MAILERSEND_APIKEY;
 
 // Configura la conexión a la base de datos
 const connection = mysql.createConnection({
@@ -300,6 +301,41 @@ app.post('/sms', (req, res) => {
         res.status(500).send(error);
     });
 });
+
+app.post('/send_email', (req, res) => {
+    const { id_usuario, password, telefono, correo } = req.body;
+  
+    const emailData = {
+      from: {
+        email: "info@trial-zr6ke4n8vmy4on12.mlsender.net"
+      },
+      to: [
+        {
+          email: correo
+        }
+      ],
+      subject: "Confirmación de accesos Chambitas App",
+      text: `Se le hacen llegar sus credenciales de acceso a la aplicacion\n
+             ID Usuario: ${id_usuario}\nContraseña: ${password}\nTeléfono: ${telefono}`,
+      html: `<p>Se le hacen llegar sus credenciales de acceso a la aplicacion</p>
+             <p>ID Usuario: ${id_usuario}</p><p>Contraseña: ${password}</p><p>Teléfono: ${telefono}</p>`
+    };
+  
+    axios.post('https://api.mailersend.com/v1/email', emailData, {
+      headers: {
+        'Content-Type': 'application/json',
+        'Authorization': `Bearer ${mailersend_apikey}` 
+      }
+    })
+    .then(response => {
+      console.log('Correo electrónico enviado', response.data);
+      res.status(200).send('Correo electrónico enviado correctamente.');
+    })
+    .catch(error => {
+      console.error('Error al enviar el correo electrónico:', error);
+      res.status(500).send('Error al enviar el correo electrónico.');
+    });
+  });
 
 app.put('/update/:id', (req, res) => {
     const { id } = req.params;
