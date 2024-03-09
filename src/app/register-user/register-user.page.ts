@@ -68,7 +68,7 @@ export class RegisterUserPage implements OnInit {
     data.append('password', password);
     data.append('telefono', telefono);
     
-    return axios.post(this.endpoint + '/sm', data.toString(), {
+    return axios.post(this.endpoint + '/sms', data.toString(), {
       headers: {
         'Content-Type': 'application/x-www-form-urlencoded'
       }
